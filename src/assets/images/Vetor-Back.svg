@@ -1,23 +1,17 @@
-<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="1280" height="720" fill="url(#paint0_radial)"/>
-<path d="M798 510.5L1101.5 72H1268.5L988.5 510.5H798Z" fill="url(#paint1_linear)"/>
-<path d="M169 711.5L472.5 273H656.5L349.5 711.5H169Z" fill="url(#paint2_linear)"/>
-<path d="M1131 2H865.5L362.5 720H636.5L1131 2Z" fill="url(#paint3_radial)"/>
+<svg width="1080" height="718" viewBox="0 0 1080 718" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M617.844 508.5L915.962 70H1080L804.966 508.5H617.844Z" fill="url(#paint0_linear)"/>
+<path d="M0 709.5L303.5 271H487.5L180.5 709.5H0Z" fill="url(#paint1_linear)"/>
+<path d="M944.939 0H684.147L190.068 718H459.209L944.939 0Z" fill="url(#paint2_radial)"/>
 <defs>
-<radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(640 360) rotate(90) scale(360 640)">
-<stop stop-color="#323C47"/>
-<stop offset="0.859375" stop-color="#1F2935"/>
-<stop offset="1" stop-color="#1E2732"/>
-</radialGradient>
-<linearGradient id="paint1_linear" x1="1033.25" y1="72" x2="1033.25" y2="510.5" gradientUnits="userSpaceOnUse">
+<linearGradient id="paint0_linear" x1="848.922" y1="70" x2="848.922" y2="508.5" gradientUnits="userSpaceOnUse">
 <stop stop-color="#00A359"/>
 <stop offset="1" stop-color="#252F3B" stop-opacity="0"/>
 </linearGradient>
-<linearGradient id="paint2_linear" x1="251.5" y1="712" x2="532.5" y2="293.5" gradientUnits="userSpaceOnUse">
+<linearGradient id="paint1_linear" x1="82.5" y1="710" x2="363.5" y2="291.5" gradientUnits="userSpaceOnUse">
 <stop stop-color="#00A359"/>
 <stop offset="1" stop-color="#252F3B" stop-opacity="0"/>
 </linearGradient>
-<radialGradient id="paint3_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(991.5 1.99999) rotate(124.799) scale(874.371 935.869)">
+<radialGradient id="paint2_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(807.913) rotate(124.32) scale(869.351 924.58)">
 <stop offset="0.177954" stop-color="#19232C" stop-opacity="0"/>
 <stop offset="0.5" stop-color="#19232C" stop-opacity="0.5"/>
 <stop offset="1" stop-color="#19232C" stop-opacity="0"/>

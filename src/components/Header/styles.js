@@ -15,16 +15,15 @@ export const Container = styled.header `
   
     div {
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-around;
       align-items: center;
-      max-width: 20%;
+      max-width: 25%;
     }
     a {
-      margin: auto 5px;
+      margin: auto 10px;
       img {
-        height: auto;
+        height: 30px;
         width: auto;
-        padding: 0.8em;
       }
     }
   }

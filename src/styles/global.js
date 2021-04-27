@@ -3,7 +3,17 @@ import { createGlobalStyle } from 'styled-components';
 import background from '../assets/images/background.svg';
 
 export default createGlobalStyle `
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+  @media(max-width: 1080px) {
+      html {
+          font-size: 93.75%;
+      }
+  }
+
+  @media(max-width: 720px) {
+      html {
+          font-size: 87.5%;
+      }
+  }
 
   * {
     margin: 0;
@@ -21,13 +31,12 @@ export default createGlobalStyle `
   }
 
   body, input, button {
-    font: 14px Poppins, sans-serif;
+    font: 300 1rem Montserrat, sans-serif;
   }
 
   #root {
     max-width: 90%;
     margin: 0 auto;
-    padding: 0 20px 50px;
   }
 
   button {

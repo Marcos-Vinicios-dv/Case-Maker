@@ -37,7 +37,7 @@ function Header() {
           }
           </Link>
           
-          <Link to="login">{pathname === '/login' ? 
+          <Link to="perfil">{pathname === '/perfil' ? 
             <img src={InLogin} alt="No carrinho"/>
             : 
             <img src={ProfileSVG} alt="Perfil"/>
