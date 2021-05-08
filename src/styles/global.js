@@ -27,7 +27,29 @@ export default createGlobalStyle `
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: cover;    
+    background-size: cover; 
+
+    overflow-y: scroll;
+
+::-webkit-scrollbar-track
+{
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: none;
+}
+
+::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #1E2832;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: rgba(196, 196, 196, 0.3);
+}   
   }
 
   body, input, button {

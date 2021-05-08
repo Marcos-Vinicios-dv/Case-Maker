@@ -1,14 +1,16 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import * as Yup from 'yup';
 
 import Senha from '../../../assets/images/Senha.svg';
 import Profile from '../../../assets/images/ProfileL.svg';
 import Input from '../input';
 
-import  { Form }  from '../styles';
+import  { Form }  from './styles';
 
 function Login() {
   const formRef = useRef(null);
+  const [ erros, setErros ] = useState();
+  
 
   async function handleSubmit(data, { reset }) {
     try {
@@ -21,32 +23,34 @@ function Login() {
         abortEarly: false,
       })
       console.log(data);
-      formRef.current.setErrors({});
+      setErros();
       reset();
     } catch (err) {
       if (err instanceof Yup.ValidationError) {
         const errorMessages = {};
-
         err.inner.forEach(error => {
-          errorMessages[error.path] = error.message;
+            errorMessages[error.path] = error.message;
         })
 
-        formRef.current.setErrors(errorMessages);
+        setErros(errorMessages);
       }
     } 
   }
 
   return (
     <Form ref={formRef} onSubmit={handleSubmit}>
-      <h1>LOGIN</h1>
+      <h1>Login</h1>
       <div>
         <img src={Profile} alt=""/>
         <Input type="email" name="email" placeholder="E-mail"/>
       </div>
+      { erros && <label>{erros.email}</label> }
       <div>
         <img src={Senha} alt=""/>
         <Input type="password" name="senha" placeholder="Senha"/>
       </div>
+      { erros && <label>{erros.senha}</label> }
+      <strong>Esqueci minha senha</strong>
       <button type="submit">LOGIN</button>
     </Form>
   );

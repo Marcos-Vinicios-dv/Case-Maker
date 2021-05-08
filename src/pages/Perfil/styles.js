@@ -134,69 +134,17 @@ export const FormSection = styled.section`
   height: 600px;
   color: #d1d1d1;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
   background: #1E2832;
 
- h1 {
-   font-size: 2rem;
- }
-
- button {
-   color: #d1d1d1;
-   font-size: 1.2rem;
-   font-weight: bold;
-   background: rgba(0, 209, 114, 0.71);
-
-   border: 0;
-
-   width: 200px;
-   height: 50px;
- }
-
- div {
-   width: 350px;
-   height: 50px;
-   display: flex;
-   align-items: center;
-   justify-content: space-evenly;
-
-   border-radius: 4px;
-
-   background: rgba(196, 196, 196, 0.09);
-
-   & + div {
-     margin-top: 30px;
-   }
-
-   input {
-     width: 80%;
-     height: 50%;
-     color: #d1d1d1;
-
-     background: none;
-     border: 0;
-
-     &::placeholder {
-       color: rgba(209, 209, 209, 0.29);
-     }
-   }
- }
  ${props => props.cadastrar && css`
   animation: ${moverCardLeft} 1.5s cubic-bezier(0.860, 0.000, 0.070, 1.000) forwards;
  `}
  ${props => props.login && css`
   animation: ${moverCardRight} 1.5s cubic-bezier(0.860, 0.000, 0.070, 1.000) forwards;
-  button {
-   color: #d1d1d1;
-   font-size: 1.2rem;
-   font-weight: bold;
-   background: rgba(0, 209, 114, 0.71);
-
-   border: 0;
-
-   width: 200px;
-   height: 60px;
-  }
  `}
 `;

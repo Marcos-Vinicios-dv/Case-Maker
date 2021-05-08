@@ -32,7 +32,7 @@ function Perfil() {
       </ToggleSection>
 
       <FormSection cadastrar={section.cadastrar} login={section.login}>
-        { section.cadastrar ? <Cadastrar/> : <Login/>}
+        { section.cadastrar ? <Cadastrar/> : <Login/> }
       </FormSection>
     </Container>
   );
