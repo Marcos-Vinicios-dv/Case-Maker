@@ -25,8 +25,8 @@ function Presets() {
     carregarProdutos();     
   },[]);
 
-  function addCarrinho(produto) {
-    dispatch(CarrinhoActions.addAoCarrinho(produto))
+  function addCarrinho(id) {
+    dispatch(CarrinhoActions.solicitarAddAoCarrinho(id))
   }
 
   return (
@@ -42,7 +42,7 @@ function Presets() {
               <input type="radio"/>
             </div>
             <span>{produto.precoFormatado}</span>
-            <ButtonCarrinho type="button" onClick={() => addCarrinho(produto)}>
+            <ButtonCarrinho type="button" onClick={() => addCarrinho(produto.id)}>
               <img src={Carrinho} alt=""/>
             </ButtonCarrinho>
           </li>

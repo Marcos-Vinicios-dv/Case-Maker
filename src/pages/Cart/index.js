@@ -27,11 +27,11 @@ function Cart() {
   const dispatch = useDispatch();  
 
   function incremento (produto) {
-    dispatch(CarrinhoActions.alterarQuantidade(produto.id, produto.quantidade + 1));
+    dispatch(CarrinhoActions.solicitarAlterarQuantidade(produto.id, produto.quantidade + 1));
   }
 
   function decremento (produto) {
-    dispatch(CarrinhoActions.alterarQuantidade(produto.id, produto.quantidade - 1));
+    dispatch(CarrinhoActions.solicitarAlterarQuantidade(produto.id, produto.quantidade - 1));
   }
 
   return (

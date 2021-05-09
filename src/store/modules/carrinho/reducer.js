@@ -3,18 +3,11 @@ import produce from 'immer';
 // reducer
 export default function carrinho(state = [], action) {
   switch (action.type) {
-    case '@carrinho/ADICIONAR':
+    case '@carrinho/SUCESSO_ADICIONAR':
     return produce(state, draft => {
-      const produtoIndex = draft.findIndex(p => p.id === action.produto.id);
-
-      if(produtoIndex >= 0) {
-        draft[produtoIndex].quantidade += 1;
-      } else {
-        draft.push({
-          ...action.produto,
-          quantidade: 1,
-        });
-      }  
+      const { produto } = action;
+       
+      draft.push(produto);
     });
     case '@carrinho/REMOVER':
       return produce(state, draft => {
@@ -24,10 +17,7 @@ export default function carrinho(state = [], action) {
           draft.splice(produtoIndex, 1);
         }
       });
-      case '@cart/ATUALIZAR_QUANTIDADE': {
-        if (action.quantidade <= 0) {
-          return state;
-        }
+      case '@carrinho/SUCESSO_ALTERAR_QUANTIDADE': {
         return produce(state, draft => {
           const produtoIndex = draft.findIndex(p => p.id === action.id);
 
