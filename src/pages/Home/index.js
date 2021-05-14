@@ -1,7 +1,6 @@
 import React from 'react';
 
 import SlideDown from '../../assets/images/SlideDown.svg'
-import Pc from '../../assets/images/Pc.svg';
 
 import { Container, PC, CustomButton, MainText} from './styles';
 import Presets from './Presets';
@@ -26,7 +25,7 @@ function Home() {
         </MainText>
 
         <PC>
-          <img src={Pc} alt="pc"/>
+          <img src="https://www.imagemhost.com.br/images/2021/05/13/Thermaltake-H200.png" alt="pc"/>
         </PC>     
         
         <img src={SlideDown} alt="Slide Down"/>

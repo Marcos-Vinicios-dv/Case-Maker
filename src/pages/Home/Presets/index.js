@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react';
 import api from '../../../services/api';
 import { useDispatch } from 'react-redux';
 
-import Pc from '../../../assets/images/Pc.svg';
 import Carrinho from '../../../assets/images/ButtonCarrinho.svg'
-import { Container, ListaDeProdutos, ButtonCarrinho } from './styles';
+import { Container, ListaDeProdutos } from './styles';
 
 import * as CarrinhoActions from '../../../store/modules/carrinho/actions';
 import { formatPrice } from '../../../util/format';
@@ -34,7 +33,7 @@ function Presets() {
       <ListaDeProdutos>
         {produtos.map(produto => (
           <li key={produto.id}>
-            <img src={Pc} alt="pc"/>        
+            <img src={produto.image} alt="pc"/>        
             <strong>{produto.title}</strong>
             <div>
               <span>Cores:</span>
@@ -42,9 +41,9 @@ function Presets() {
               <input type="radio"/>
             </div>
             <span>{produto.precoFormatado}</span>
-            <ButtonCarrinho type="button" onClick={() => addCarrinho(produto.id)}>
+            <button type="button" onClick={() => addCarrinho(produto.id)}>
               <img src={Carrinho} alt=""/>
-            </ButtonCarrinho>
+            </button>
           </li>
         ))}
       </ListaDeProdutos>

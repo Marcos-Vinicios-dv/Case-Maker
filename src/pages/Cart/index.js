@@ -52,7 +52,7 @@ function Cart() {
               <button type="button">
                 <img src={Wrench} alt="Customizar"/>
               </button>
-              <img src={Pc} alt="Pc"/>
+              <img src={produto.image} alt="Pc"/>
             </td>
             <td>
               <strong>{produto.title}</strong>
