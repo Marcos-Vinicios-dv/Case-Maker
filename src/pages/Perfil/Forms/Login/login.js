@@ -1,9 +1,9 @@
 import React, { useRef, useState } from 'react';
 import * as Yup from 'yup';
 
-import Senha from '../../../assets/images/Senha.svg';
-import Profile from '../../../assets/images/ProfileL.svg';
-import Input from '../input';
+import Senha from '../../../../assets/images/Senha.svg';
+import Profile from '../../../../assets/images/ProfileL.svg';
+import Input from '../../../../components/Input/input';
 
 import  { Form }  from './styles';
 

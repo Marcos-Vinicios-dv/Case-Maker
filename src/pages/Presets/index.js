@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import api from '../../../services/api';
+import api from '../../services/api';
 import { useDispatch } from 'react-redux';
 
-import Carrinho from '../../../assets/images/ButtonCarrinho.svg'
+import Carrinho from '../../assets/images/ButtonCarrinho.svg'
 import { Container, ListaDeProdutos } from './styles';
 
-import * as CarrinhoActions from '../../../store/modules/carrinho/actions';
-import { formatPrice } from '../../../util/format';
+import * as CarrinhoActions from '../../store/modules/carrinho/actions';
+import { formatPrice } from '../../util/format';
 
 function Presets() {
   const [ produtos, setProdutos ] = useState([]);

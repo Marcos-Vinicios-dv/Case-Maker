@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import BackCard from '../../../assets/images/BackCard.svg';
+import BackCard from '../../assets/images/BackCard.svg';
 
 export const Container = styled.div`
 width: 90vw;

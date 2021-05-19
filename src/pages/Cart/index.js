@@ -7,7 +7,6 @@ import {
   MdAddCircleOutline, 
   MdDelete } from 'react-icons/md';
 import Wrench from '../../assets/images/Wrench.svg'
-import Pc from '../../assets/images/Pc.svg';
 import Frete from '../../assets/images/Frete.svg';
 
 import { Container, ProductTable, FreteList, Total, Barra } from './styles';

@@ -30,6 +30,14 @@ export const fadeInBack = keyframes `
     opacity:1
 }
 `;
+export const fade = keyframes `
+0%{
+    opacity:0
+}
+100%{
+    opacity:1
+}
+`;
 
 export const Container = styled.section`
   width: 90vw;
@@ -59,14 +67,24 @@ export const Container = styled.section`
 
 export const PC = styled.div `
   grid-area: pc;
-  align-self: flex-start;
+  align-self: center;
   justify-self: center;
+  transform: rotate(-90deg);
+  position: relative;
+  top: -60px;
 
-  img {
-    width: 60%;
-    height: 70%;
+  width: 50%;
+
+  animation: ${fade} .6s cubic-bezier(.39,.575,.565,1.000) 1.3s both;
+  
+
+  div .sc-htoDjs {
+    transform: translateY(400px);
   }
+  //ARRUMAR RESPONSIVIDADE DEPOIS
+  
 `;
+
 
 export const CustomButton = styled.button `
   border: 1px solid #05C46D;

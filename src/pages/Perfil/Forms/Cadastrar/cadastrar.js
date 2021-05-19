@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import * as Yup from 'yup';
 import { Scope } from '@unform/core'
-import Input from '../input';
+import Input from '../../../../components/Input/input';
 
 import  { Form, InputSection }  from './styles';
 

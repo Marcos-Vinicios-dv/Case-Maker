@@ -4,8 +4,8 @@ import Engrenagem from '../../assets/images/Engrenagem.svg';
 
 
 import { Container, ToggleSection, FormSection } from './styles';
-import Login from '../../components/Forms/Login/login';
-import Cadastrar from '../../components/Forms/Cadastrar/cadastrar';
+import Login from './Forms/Login/login';
+import Cadastrar from './Forms/Cadastrar/cadastrar';
 
 function Perfil() {
   const [ section, setSection ] = useState({cadastrar: false, login: false});
