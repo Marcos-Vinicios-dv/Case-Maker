@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Form as Unform } from '@unform/web'
 
+
 export const Form = styled(Unform)`
 width: 100%;
 height: 100%;
@@ -9,6 +10,8 @@ grid-template-columns: 1fr;
 grid-template-rows: 0.5fr 3fr .5fr;
 place-items: center;
 place-content: center;
+
+animation: fadeInBack .6s cubic-bezier(.39,.575,.565,1.000) 1s both;
 
 h1 {
   font-size: 2rem;
@@ -94,4 +97,15 @@ overflow-y: scroll;
   font-weight: 300;
   margin: 8px 60px;
  }  
+
+ @keyframes fadeInBack {
+    from{
+    transform:translateZ(80px);
+    opacity:0
+    }
+    to{
+      transform:translateZ(0);
+      opacity:1
+    }
+  }
 `;

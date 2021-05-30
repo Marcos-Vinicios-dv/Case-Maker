@@ -1,19 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import SlideDown from '../../assets/images/SlideDown.svg'
 
 import { Container, PC, CustomButton, MainText} from './styles';
 import Presets from '../Presets';
 import Carousel  from './Carousel/Carousel';
-import { useSelector } from 'react-redux';
 
-function Home() {
-
-  const gabinete = useSelector(state => state.customizar)
-
-  function customizarGabinete(gabinete) {
-    console.log(gabinete);
-  }
+const Home = () => {
   return (
     <>
       <Container>
@@ -23,16 +17,19 @@ function Home() {
             <p>
               Customize sua maquina com cores, camuflagens, adesivos dos mais 
               diversos tipos e Leds de sua preferência.
-              </p>
-              <p>
-              Customize você mesmo ou escolha entres algumas predefinições 
-              criadas por nós.  
-              </p>   
+            </p>
+            <p>
+              Basta clicar em algum desses modelos ou escolher um customizado
+              por nós em Presets
+            </p>   
           </div> 
 
-          <CustomButton type="button" onClick={() => customizarGabinete(gabinete)}>
-            CUSTOMIZAR
-          </CustomButton>    
+          <Link to="/customizar">
+            <CustomButton type="button">
+              CUSTOMIZAR
+            </CustomButton>
+          </Link>
+              
         </MainText>
 
         <PC>

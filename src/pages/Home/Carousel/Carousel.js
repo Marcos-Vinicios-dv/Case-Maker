@@ -13,17 +13,17 @@ export default function PCCarousel() {
   const [gabinetes, setGabinetes] = useState([
     {
       id: 0,
-      imagem: "https://www.imagemhost.com.br/images/2021/05/13/Thermaltake-H200.png",
+      imagem: "https://www.imagemhost.com.br/images/2021/05/23/Thermaltake-H200.png",
       isSelected: false,
     },
     {
       id: 1,
-      imagem: "https://www.imagemhost.com.br/images/2021/05/13/Thermaltake-H200.png",
+      imagem: "https://www.imagemhost.com.br/images/2021/05/23/Aigo_darkflash.png",
       isSelected: false,
     },
     {
       id: 2,
-      imagem: "https://www.imagemhost.com.br/images/2021/05/13/Thermaltake-H200.png",
+      imagem: "https://www.imagemhost.com.br/images/2021/05/26/GabineteCougarDarkblader.png",
       isSelected: false,
     }
   ]); 
@@ -49,6 +49,8 @@ export default function PCCarousel() {
   useEffect(() => {
     if (select !== undefined) {
       Dispatch(selecionarGabinete(select))
+    } else {
+      Dispatch(selecionarGabinete({ id: "" }))
     }       
   }, [Dispatch, select])
 // f2 e clique para alterar tudo
@@ -67,7 +69,7 @@ export default function PCCarousel() {
          <Carousel.Item key={i}>
            <Container onClick={() => selectItem(gabinete.id)}>
              {gabinete.isSelected ? <div><img src={Verify} alt="Selecionado"/></div> : null}
-             <img  width="70%" src={gabinete.imagem} alt="pc"/>
+             <img  width="80%" src={gabinete.imagem} alt="pc"/>
            </Container>
          </Carousel.Item>
        ))}

@@ -12,7 +12,7 @@ import Frete from '../../assets/images/Frete.svg';
 import { Container, ProductTable, FreteList, Total, Barra } from './styles';
 import { formatPrice } from '../../util/format';
 
-function Cart() {
+const Cart = () => {
   const total = useSelector(state => formatPrice(
     state.carrinho.reduce((total, produto) => {
       return total + produto.price * produto.quantidade;

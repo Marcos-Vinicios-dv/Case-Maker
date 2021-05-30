@@ -1,49 +1,12 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import Back from '../../assets/images/Vetor-Back.png';
-import { darken } from 'polished';
-
-export const isBouncing = keyframes`
-to {
-  transform: translateY(30px);
-}
-`;
-export const slideLetters = keyframes `
-0% {
-  transform: translateX(30px);
-  opacity:0
-}
-40% {
-  opacity:.6
-}
-100% {
-  transform: translateX(0px);
-  opacity:1
-}
-`;
-export const fadeInBack = keyframes `
-0%{
-    transform:translateZ(80px);
-    opacity:0
-}
-100%{
-    transform:translateZ(0);
-    opacity:1
-}
-`;
-export const fade = keyframes `
-0%{
-    opacity:0
-}
-100%{
-    opacity:1
-}
-`;
+import { darken, backgroundImages } from 'polished';
 
 export const Container = styled.section`
   width: 90vw;
   height: 90vh;
 
-  background-image: url(${Back});
+ ${backgroundImages(`url(${Back})`,'radial-gradient(#323C47 10%, #222C38 50%, #202A36 60%)')} ;
   background-position: top -85px right 0px;
   background-repeat: no-repeat;
   background-size: 90% 110%;
@@ -61,7 +24,7 @@ export const Container = styled.section`
     width: 40px;
     height: 40px;
 
-    animation: ${isBouncing} 1s ease-in alternate infinite;
+    animation: isBouncing 1s ease-in alternate infinite;
   } 
 `;
 
@@ -71,15 +34,16 @@ export const PC = styled.div `
   justify-self: center;
   transform: rotate(-90deg);
   position: relative;
-  top: -60px;
+  top: -10px;
+  right: 100px;
 
   width: 50%;
 
-  animation: ${fade} .6s cubic-bezier(.39,.575,.565,1.000) 1.3s both;
+  animation: fade .6s cubic-bezier(.39,.575,.565,1.000) 1.3s both;
   
 
   div .sc-htoDjs {
-    transform: translateY(400px);
+    transform: translateY(500px);
   }
   //ARRUMAR RESPONSIVIDADE DEPOIS
   
@@ -97,7 +61,7 @@ export const CustomButton = styled.button `
   0 41.8px 33.4px rgba(0, 0, 0, 0.086),
   0 30px 80px rgba(0, 0, 0, 0.12);
 
-  animation: ${fadeInBack} .6s cubic-bezier(.39,.575,.565,1.000) 1.3s both;
+  animation: fadeInBack .6s cubic-bezier(.39,.575,.565,1.000) 1.3s both;
   
   background: none;
   transition: .2s ease-in-out;
@@ -125,12 +89,12 @@ export const MainText = styled.div `
 
   span {
     font-size: 3em;
-    animation: ${slideLetters} .6s cubic-bezier(.39,.575,.565,1.000) .7s both;
+    animation: slideLetters .6s cubic-bezier(.39,.575,.565,1.000) .7s both;
   }
 
   div {
     text-align: left;
-    animation: ${fadeInBack} .6s cubic-bezier(.39,.575,.565,1.000) 1s both;
+    animation: fadeInBack .6s cubic-bezier(.39,.575,.565,1.000) 1s both;
     p {      
       font-size: 1.3em;
       
@@ -139,4 +103,49 @@ export const MainText = styled.div `
       }
     }
   }
+  a {
+    width: 14rem;
+    height: 4rem;
+  }
+
+  @keyframes fade {
+    from{
+      opacity:0
+    }
+    to{
+      opacity:1
+    }
+  }
+  
+  @keyframes fadeInBack {
+    from{
+      transform:translateZ(80px);
+      opacity:0
+    }
+    to{
+      transform:translateZ(0);
+      opacity:1
+    }
+  }
+
+  @keyframes slideLetters {
+    0% {
+      transform: translateX(30px);
+      opacity:0;
+    }
+    40% {
+      opacity:.6;
+    }
+    100% {
+      transform: translateX(0px);
+      opacity:1;
+    }
+  }
+
+  @keyframes isBouncing {
+    to {
+    transform: translateY(30px);
+    }
+  }
+
 `;

@@ -1,7 +1,7 @@
 import produce from 'immer';
 
 // reducer
-export default function carrinho(state = [], action) {
+export const carrinho = (state = [], action) => {
   switch (action.type) {
     case '@carrinho/SUCESSO_ADICIONAR':
     return produce(state, draft => {

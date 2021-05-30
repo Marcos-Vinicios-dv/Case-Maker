@@ -1,7 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
 import 'react-toastify/dist/ReactToastify.css';
-import background from '../assets/images/background.svg';
 
 export default createGlobalStyle `
   @media(max-width: 1080px) {
@@ -24,12 +23,7 @@ export default createGlobalStyle `
   }
 
   body {
-    background-image: url(${background});
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover; 
-
+    background-color: #202A36;
     overflow-y: scroll;
 
 ::-webkit-scrollbar-track
@@ -54,7 +48,7 @@ export default createGlobalStyle `
   }
 
   body, input, button {
-    font: 300 1rem Montserrat, sans-serif;
+    font: 300 1rem Poppins, sans-serif;
   }
 
   #root {

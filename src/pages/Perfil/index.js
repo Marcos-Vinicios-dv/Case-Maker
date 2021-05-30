@@ -7,7 +7,7 @@ import { Container, ToggleSection, FormSection } from './styles';
 import Login from './Forms/Login/login';
 import Cadastrar from './Forms/Cadastrar/cadastrar';
 
-function Perfil() {
+const Perfil = () => {
   const [ section, setSection ] = useState({cadastrar: false, login: false});
 
   function alternarSection(section) {

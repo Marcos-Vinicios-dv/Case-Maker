@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Form as Unform } from '@unform/web'
 import { darken } from 'polished'
 
+
 export const Form = styled(Unform)`
 width: 100%;
 height: 100%;
@@ -9,6 +10,8 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+
+animation: fadeInBack .6s cubic-bezier(.39,.575,.565,1.000) 1s both;
 
 h1 {
   font-size: 2rem;
@@ -19,7 +22,7 @@ button {
    color: #d1d1d1;
    font-size: 1.2rem;
    font-weight: bold;
-   background: rgba(0, 209, 114, 0.71);
+   background: rgba(0, 209, 114, 0.81);
 
    border: 0;
 
@@ -76,4 +79,15 @@ div {
   font-weight: 300;
   margin: 8px auto;
  } 
+
+  @keyframes fadeInBack {
+    from{
+    transform:translateZ(80px);
+    opacity:0
+    }
+    to{
+      transform:translateZ(0);
+      opacity:1
+    }
+  }
 `;
