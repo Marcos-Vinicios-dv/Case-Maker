@@ -1,18 +1,17 @@
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
-
-export const Container = styled.header `
+export const Container = styled.header`
   display: flex;
   align-items: center;
-  justify-content:space-between;  
+  justify-content: space-between;
 
   div {
-  display: flex;
-  align-items: center;
-  justify-content:flex-end;
-  width: 40%;
-  
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 40%;
+
     div {
       display: flex;
       justify-content: space-around;
@@ -35,25 +34,23 @@ export const NavLinks = styled.nav`
   color: #d1d1d1;
 
   ul {
-    list-style:none;
+    list-style: none;
     display: flex;
     align-items: center;
     margin-right: 10em;
-  
-    li {       
-      
+
+    li {
       a {
         padding-bottom: 4px;
         text-decoration: none;
         transition: color 0.2s ease;
-        
+
         &:hover {
-          color: #00D172;
-          border-bottom: 2px solid #00D172;
+          color: #00d172;
+          border-bottom: 2px solid #00d172;
         }
-        
       }
-      
+
       & + li {
         padding-left: 3em;
       }
@@ -61,24 +58,28 @@ export const NavLinks = styled.nav`
   }
 `;
 
-export const Home = styled(Link) `
+export const Home = styled(Link)`
   color: inherit;
 
-  ${props => props.active === '/' && css`
-  color: #00D172;
-  border-bottom: 2px solid #00D172;
-  `}
+  ${props =>
+    props.active === '/' &&
+    css`
+      color: #00d172;
+      border-bottom: 2px solid #00d172;
+    `}
 `;
 
-export const Presets = styled(Link) `
+export const Presets = styled(Link)`
   color: inherit;
 `;
 
 export const Customizar = styled(Link)`
   color: inherit;
 
-  ${props => props.active === '/customizar' && css`
-  color: #00D172;
-  border-bottom: 2px solid #00D172;
-  `}
+  ${props =>
+    props.active === '/customizar' &&
+    css`
+      color: #00d172;
+      border-bottom: 2px solid #00d172;
+    `}
 `;

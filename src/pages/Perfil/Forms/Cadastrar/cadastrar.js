@@ -1,17 +1,17 @@
 import React, { useRef, useState, useEffect } from 'react';
 import * as Yup from 'yup';
-import { Scope } from '@unform/core'
+import { Scope } from '@unform/core';
 import Input from '../../../../components/Input/input';
 
-import  { Form, InputSection }  from './styles';
+import { Form, InputSection } from './styles';
 
 function Cadastrar(cadastrar, login) {
   const formRef = useRef(null);
-  const [ erros, setErros ] = useState();
+  const [erros, setErros] = useState();
 
   useEffect(() => {
     console.log(erros);
-  }, [erros])
+  }, [erros]);
 
   async function handleSubmit(data, { reset }) {
     try {
@@ -26,12 +26,12 @@ function Cadastrar(cadastrar, login) {
           cidade: Yup.string().required('Este campo é obrigatório!'),
           estado: Yup.string().required('Este campo é obrigatório!'),
           cep: Yup.string().min(8, 'Digite um CEP válido!'),
-        })
+        }),
       });
 
       await schema.validate(data, {
         abortEarly: false,
-      })
+      });
       console.log(data);
       setErros();
       reset();
@@ -39,12 +39,12 @@ function Cadastrar(cadastrar, login) {
       if (err instanceof Yup.ValidationError) {
         const errorMessages = {};
         err.inner.forEach(error => {
-            errorMessages[error.path] = error.message;
-        })
+          errorMessages[error.path] = error.message;
+        });
 
         setErros(errorMessages);
       }
-    } 
+    }
   }
 
   return (
@@ -52,44 +52,44 @@ function Cadastrar(cadastrar, login) {
       <h1>Cadastrar</h1>
       <InputSection>
         <div>
-        <Input type="text" name="nome" placeholder="Nome completo"/>
+          <Input type="text" name="nome" placeholder="Nome completo" />
         </div>
-        { erros && <label>{erros.nome}</label> }
+        {erros && <label>{erros.nome}</label>}
         <div>
-        <Input type="email" name="email" placeholder="E-mail"/>
-        </div> 
-        { erros && <label>{erros.email}</label> }     
-        <div>
-        <Input type="password" name="senha" placeholder="Senha"/>
+          <Input type="email" name="email" placeholder="E-mail" />
         </div>
-        { erros && <label>{erros.senha}</label> }
+        {erros && <label>{erros.email}</label>}
         <div>
-        <Input type="text" name="cpf" placeholder="CPF"/>
+          <Input type="password" name="senha" placeholder="Senha" />
         </div>
-        { erros && <label>{erros.cpf}</label> }
+        {erros && <label>{erros.senha}</label>}
+        <div>
+          <Input type="text" name="cpf" placeholder="CPF" />
+        </div>
+        {erros && <label>{erros.cpf}</label>}
         <Scope path="endereco">
-          <div>          
-          <Input type="text" name="rua" placeholder="Rua"/>
+          <div>
+            <Input type="text" name="rua" placeholder="Rua" />
           </div>
-          { erros && <label>{erros['endereco.rua']}</label> }
-          <div>          
-          <Input type="text" name="bairro" placeholder="Bairro"/>
+          {erros && <label>{erros['endereco.rua']}</label>}
+          <div>
+            <Input type="text" name="bairro" placeholder="Bairro" />
           </div>
-          { erros && <label>{erros['endereco.bairro']}</label> }
-          <div>          
-          <Input type="text" name="cidade" placeholder="Cidade"/>
+          {erros && <label>{erros['endereco.bairro']}</label>}
+          <div>
+            <Input type="text" name="cidade" placeholder="Cidade" />
           </div>
-          { erros && <label>{erros['endereco.cidade']}</label> }
-          <div>          
-          <Input type="text" name="estado" placeholder="Estado"/>
+          {erros && <label>{erros['endereco.cidade']}</label>}
+          <div>
+            <Input type="text" name="estado" placeholder="Estado" />
           </div>
-          { erros && <label>{erros['endereco.estado']}</label> }
-          <div>          
-          <Input type="text" name="cep" placeholder="CEP"/>
+          {erros && <label>{erros['endereco.estado']}</label>}
+          <div>
+            <Input type="text" name="cep" placeholder="CEP" />
           </div>
-          { erros && <label>{erros['endereco.cep']}</label> }
+          {erros && <label>{erros['endereco.cep']}</label>}
         </Scope>
-        </InputSection>
+      </InputSection>
       <button type="submit">CADASTRAR</button>
     </Form>
   );

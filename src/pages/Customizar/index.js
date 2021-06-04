@@ -15,61 +15,61 @@ import { toast } from 'react-toastify';
 
 const cores = [
   {
-    cor: '#6ECC4D'
+    cor: '#6ECC4D',
   },
   {
-    cor: '#4DCC80'
+    cor: '#4DCC80',
   },
   {
-    cor: '#CC4D4D'
+    cor: '#CC4D4D',
   },
   {
-    cor: '#CC4D6B'
+    cor: '#CC4D6B',
   },
   {
-    cor: '#CC7A4D'
+    cor: '#CC7A4D',
   },
   {
-    cor: '#C9CC4D'
+    cor: '#C9CC4D',
   },
   {
-    cor: '#4D59CC'
+    cor: '#4D59CC',
   },
   {
-    cor: '#4D9ECC'
+    cor: '#4D9ECC',
   },
   {
-    cor: '#4DC4CC'
+    cor: '#4DC4CC',
   },
   {
-    cor: '#7D4DCC'
+    cor: '#7D4DCC',
   },
   {
-    cor: '#664DCC'
+    cor: '#664DCC',
   },
   {
-    cor: '#BA4DCC'
-  }
+    cor: '#BA4DCC',
+  },
 ];
 
 const Customizar = () => {
-  const [ cor, setCor ] = useState(null);
+  const [cor, setCor] = useState(null);
   const gabinete = useSelector(state => state.customizar);
 
   useEffect(() => {
-    if (gabinete.id === "" ) {
-      toast.warning("Selecione um gabinete na tela principal!")
-    } 
-  }, [gabinete])
+    if (gabinete.id === '') {
+      toast.warning('Selecione um gabinete na tela principal!');
+    }
+  }, [gabinete]);
 
   function getCor(cor) {
     setCor(cor);
     console.log(cor);
   }
 
-  const setAtributo = (t) => {
+  const setAtributo = t => {
     t.setAttribute('fill', cor);
-  }
+  };
 
   return (
     <Container>
@@ -77,33 +77,46 @@ const Customizar = () => {
 
       <CustomizeMenu>
         <ul>
-          <li><img src={Paleta} alt="" /></li>
-          <li><img src={Brush} alt="" /></li>
-          <li><img src={Bandage} alt="" /></li>
-          <li><img src={Led} alt="" /></li>
+          <li>
+            <img src={Paleta} alt="" />
+          </li>
+          <li>
+            <img src={Brush} alt="" />
+          </li>
+          <li>
+            <img src={Bandage} alt="" />
+          </li>
+          <li>
+            <img src={Led} alt="" />
+          </li>
         </ul>
       </CustomizeMenu>
 
       <MenuContent>
-          <ul>
-           {cores.map(cor => (
-             <div>
-              <li style={{backgroundColor: cor.cor}} onClick={() => {getCor(cor.cor)}}></li>
-             </div>
-          ))} 
-          </ul>
-          
-          <button type="button">APLICAR</button>
+        <ul>
+          {cores.map(cor => (
+            <div>
+              <li
+                style={{ backgroundColor: cor.cor }}
+                onClick={() => {
+                  getCor(cor.cor);
+                }}
+              ></li>
+            </div>
+          ))}
+        </ul>
+
+        <button type="button">APLICAR</button>
       </MenuContent>
 
       <PC>
-        { gabinete.id === "" && <></> }
-        { gabinete.id === 0 &&  <H200 setColor={setAtributo}/>}
-        { gabinete.id === 1 &&  <AigoDarkflash setColor={setAtributo}/>}
-        { gabinete.id === 2 &&  <CougarDarkblader setColor={setAtributo}/>}
+        {gabinete.id === '' && <></>}
+        {gabinete.id === 0 && <H200 setColor={setAtributo} />}
+        {gabinete.id === 1 && <AigoDarkflash setColor={setAtributo} />}
+        {gabinete.id === 2 && <CougarDarkblader setColor={setAtributo} />}
       </PC>
     </Container>
   );
-}
+};
 
 export default Customizar;

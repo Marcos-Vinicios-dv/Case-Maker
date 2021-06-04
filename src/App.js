@@ -16,11 +16,11 @@ function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <Header/>
-        <Routes/>
-        <GlobalStyles/>
-        <ToastContainer autoClose={3000}/>
-        <Footer/>
+        <Header />
+        <Routes />
+        <GlobalStyles />
+        <ToastContainer autoClose={3000} />
+        <Footer />
       </BrowserRouter>
     </Provider>
   );

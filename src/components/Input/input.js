@@ -9,13 +9,13 @@ function Input({ name, ...rest }) {
     registerField({
       name: fieldName,
       ref: inputRef.current,
-      path: 'value'
-    })
+      path: 'value',
+    });
   }, [fieldName, registerField]);
 
   return (
     <>
-      <input ref={inputRef} {...rest}/>
+      <input ref={inputRef} {...rest} />
     </>
   );
 }

@@ -1,7 +1,5 @@
-
 // import Left from '../../assets/images/ArrowLeft.svg';
 // import Right from '../../assets/images/ArrowRight.svg';
-
 
 //  const Arrow = styled.span`
 //   position: relative;
@@ -12,7 +10,7 @@
 // `;
 
 export const MyDot = ({ isActive }) => (
-    <span
+  <span
     style={{
       display: 'inline-block',
       height: isActive ? '15px' : '10px',
@@ -21,21 +19,21 @@ export const MyDot = ({ isActive }) => (
       opacity: isActive ? '1' : '.5',
       borderRadius: '50%',
       border: isActive ? 'none' : '1px solid #d1d1d1',
-      margin: '10px'
+      margin: '10px',
     }}
-  ></span>  
+  ></span>
 );
 
 export const arrowLeft = () => (
   // <Arrow side={'left'}>
   //   <img src={Left} alt="" />
   // </Arrow>
-  <span/>
+  <span />
 );
 
 export const arrowRight = () => (
   // <Arrow side={'right'}>
   //   <img src={Right} alt="" />
   // </Arrow>
-  <span/>
-)
+  <span />
+);

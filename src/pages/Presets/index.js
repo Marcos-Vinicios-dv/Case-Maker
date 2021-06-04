@@ -2,43 +2,48 @@ import React, { useEffect, useState } from 'react';
 import api from '../../services/api';
 import { useDispatch } from 'react-redux';
 
-import Carrinho from '../../assets/images/ButtonCarrinho.svg'
+import Carrinho from '../../assets/images/ButtonCarrinho.svg';
 import Cinco from '../../assets/images/FiveStar.svg';
 import Quatro from '../../assets/images/FourStar.svg';
 import Três from '../../assets/images/ThreeStar.svg';
 import Dois from '../../assets/images/TwoStar.svg';
 import Um from '../../assets/images/OneStar.svg';
-import { Container,
-    ListaDeProdutos,
-    Filtros,
-    Marcas,
-    Preco,
-    Avaliacao,
-    Card, Gabinete, Informacoes } from './styles';
+import {
+  Container,
+  ListaDeProdutos,
+  Filtros,
+  Marcas,
+  Preco,
+  Avaliacao,
+  Card,
+  Gabinete,
+  Informacoes,
+} from './styles';
 
 import * as CarrinhoActions from '../../store/modules/carrinho/actions';
 import { formatPrice } from '../../util/format';
 
 function Presets() {
-  const [ produtos, setProdutos ] = useState([]);
-  const [ range, setRange ] = useState(100);
+  const [produtos, setProdutos] = useState([]);
+  const [range, setRange] = useState(100);
   const input = document.getElementById('preco');
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     async function carregarProdutos() {
       const response = await api.get('products');
 
       const data = response.data.map(produto => ({
-        ...produto, precoFormatado: formatPrice(produto.price)
-      }))
+        ...produto,
+        precoFormatado: formatPrice(produto.price),
+      }));
       setProdutos(data);
     }
-    carregarProdutos(); 
-  },[]);
+    carregarProdutos();
+  }, []);
 
   function addCarrinho(id) {
-    dispatch(CarrinhoActions.solicitarAddAoCarrinho(id))
+    dispatch(CarrinhoActions.solicitarAddAoCarrinho(id));
   }
 
   function setPreco() {
@@ -60,7 +65,13 @@ function Presets() {
         <Preco>
           <h4>Preço</h4>
           <span>{range}</span>
-          <input id="preco" type="range" min="100" max ="1000" onInput={() => setPreco()} />
+          <input
+            id="preco"
+            type="range"
+            min="100"
+            max="1000"
+            onInput={() => setPreco()}
+          />
         </Preco>
         <Avaliacao>
           <h4>Avaliações</h4>
@@ -78,25 +89,25 @@ function Presets() {
         {produtos.map(produto => (
           <Card key={produto.id}>
             <Gabinete>
-              <img src={produto.image} alt="pc"/>        
+              <img src={produto.image} alt="pc" />
               <strong>{produto.title}</strong>
             </Gabinete>
             <Informacoes>
               <div>
                 <p>Cores: </p>
-                  <input type="radio" name="cor" value="preto" id="one"/>
-                  <input type="radio" name="cor" value="branco" id="two"/>
+                <input type="radio" name="cor" value="preto" id="one" />
+                <input type="radio" name="cor" value="branco" id="two" />
               </div>
               <span>{produto.precoFormatado}</span>
               <div>
-                <span><img src={Cinco} alt="" /> 5.0</span>
+                <span>
+                  <img src={Cinco} alt="" /> 5.0
+                </span>
                 <button type="button" onClick={() => addCarrinho(produto.id)}>
-                  <img src={Carrinho} alt=""/>
-                </button> 
+                  <img src={Carrinho} alt="" />
+                </button>
               </div>
             </Informacoes>
-
-            
           </Card>
         ))}
       </ListaDeProdutos>

@@ -14,10 +14,10 @@ export function addAoCarrinhoSucesso(produto) {
 }
 
 export function removerDoCarrinho(id) {
-  return { 
+  return {
     // nome do modulo/action
     type: '@carrinho/REMOVER',
-     id, 
+    id,
   };
 }
 
@@ -26,12 +26,12 @@ export function solicitarAlterarQuantidade(id, quantidade) {
     type: '@carrinho/SOLICITAR_ALTERAR_QUANTIDADE',
     id,
     quantidade,
-  }
+  };
 }
 export function alterarQuantidadeSucesso(id, quantidade) {
   return {
     type: '@carrinho/SUCESSO_ALTERAR_QUANTIDADE',
     id,
     quantidade,
-  }
+  };
 }

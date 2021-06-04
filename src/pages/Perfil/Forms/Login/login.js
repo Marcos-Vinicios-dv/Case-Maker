@@ -5,12 +5,11 @@ import Senha from '../../../../assets/images/Senha.svg';
 import Profile from '../../../../assets/images/ProfileL.svg';
 import Input from '../../../../components/Input/input';
 
-import  { Form }  from './styles';
+import { Form } from './styles';
 
 function Login() {
   const formRef = useRef(null);
-  const [ erros, setErros ] = useState();
-  
+  const [erros, setErros] = useState();
 
   async function handleSubmit(data, { reset }) {
     try {
@@ -21,7 +20,7 @@ function Login() {
 
       await schema.validate(data, {
         abortEarly: false,
-      })
+      });
       console.log(data);
       setErros();
       reset();
@@ -29,27 +28,27 @@ function Login() {
       if (err instanceof Yup.ValidationError) {
         const errorMessages = {};
         err.inner.forEach(error => {
-            errorMessages[error.path] = error.message;
-        })
+          errorMessages[error.path] = error.message;
+        });
 
         setErros(errorMessages);
       }
-    } 
+    }
   }
 
   return (
     <Form ref={formRef} onSubmit={handleSubmit}>
       <h1>Login</h1>
       <div>
-        <img src={Profile} alt=""/>
-        <Input type="email" name="email" placeholder="E-mail"/>
+        <img src={Profile} alt="" />
+        <Input type="email" name="email" placeholder="E-mail" />
       </div>
-      { erros && <label>{erros.email}</label> }
+      {erros && <label>{erros.email}</label>}
       <div>
-        <img src={Senha} alt=""/>
-        <Input type="password" name="senha" placeholder="Senha"/>
+        <img src={Senha} alt="" />
+        <Input type="password" name="senha" placeholder="Senha" />
       </div>
-      { erros && <label>{erros.senha}</label> }
+      {erros && <label>{erros.senha}</label>}
       <strong>Esqueci minha senha</strong>
       <button type="submit">LOGIN</button>
     </Form>

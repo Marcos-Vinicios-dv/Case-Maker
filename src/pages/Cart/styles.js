@@ -2,24 +2,23 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 export const Container = styled.div`
-width: 90vw;
-height: 90vh;
+  width: 90vw;
+  height: 90vh;
 
-display: grid;
-grid-template-columns: 3fr 1fr;
-grid-template-rows: 3fr 3fr;
-grid-template-areas: "pTable total" "fTable total";
-
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 3fr 3fr;
+  grid-template-areas: 'pTable total' 'fTable total';
 `;
 
-export const ProductTable = styled.table `
-grid-area: pTable;
-width: 100%;
-padding: 20px;
-margin-bottom: 15px;
+export const ProductTable = styled.table`
+  grid-area: pTable;
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 15px;
 
-background-color: #6B727A;
-border-radius: 4px;
+  background-color: #6b727a;
+  border-radius: 4px;
 
   caption {
     color: #d1d1d1;
@@ -30,7 +29,7 @@ border-radius: 4px;
   }
 
   thead th {
-    color: rgba(255, 255, 255, .33);
+    color: rgba(255, 255, 255, 0.33);
     text-align: center;
   }
 
@@ -42,9 +41,9 @@ border-radius: 4px;
     }
   }
 
-  tbody td:first-child{
-  display: flex;
-  align-items: flex-start;
+  tbody td:first-child {
+    display: flex;
+    align-items: flex-start;
   }
 
   tbody tr:nth-child(even) {
@@ -59,7 +58,7 @@ border-radius: 4px;
 
   img {
     width: auto;
-    height: 100px; 
+    height: 100px;
   }
 
   button {
@@ -73,7 +72,7 @@ border-radius: 4px;
   }
 
   small {
-    color: #05C46D;
+    color: #05c46d;
   }
 
   div {
@@ -94,28 +93,28 @@ border-radius: 4px;
   }
 `;
 
-export const FreteList = styled.ul `
-grid-area: fTable;
-margin-top: 9px;
+export const FreteList = styled.ul`
+  grid-area: fTable;
+  margin-top: 9px;
 
-span {
-  display: flex;
-  align-items: center;
+  span {
+    display: flex;
+    align-items: center;
 
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #d1d1d1;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #d1d1d1;
 
-  img {
-    margin-right: 10px;
+    img {
+      margin-right: 10px;
+    }
   }
-}
 `;
 
-export const Total = styled.div `
-grid-area: total;
-justify-self: center;
-color: #DDD;
+export const Total = styled.div`
+  grid-area: total;
+  justify-self: center;
+  color: #ddd;
 
   > div {
     margin: 30px auto;
@@ -130,25 +129,25 @@ color: #DDD;
   }
 
   button {
-  border: 0;
-  border-radius: 4px;
-  background: rgba(0, 209, 114, 0.71);
+    border: 0;
+    border-radius: 4px;
+    background: rgba(0, 209, 114, 0.71);
 
-  color: #d1d1d1;
-  font-weight: bold;
+    color: #d1d1d1;
+    font-weight: bold;
 
-  width: 14rem;
-  height: 3rem;
+    width: 14rem;
+    height: 3rem;
   }
 `;
 
-export const Barra = styled.div `
-grid-column: 1/1;
-grid-row: 1/1;
-align-self: flex-end;
+export const Barra = styled.div`
+  grid-column: 1/1;
+  grid-row: 1/1;
+  align-self: flex-end;
 
-width: 100%;
-height: 1px;
+  width: 100%;
+  height: 1px;
 
-background: #05C46D;
+  background: #05c46d;
 `;

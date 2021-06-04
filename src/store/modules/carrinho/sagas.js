@@ -1,14 +1,14 @@
 import { call, put, select, all, takeLatest } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
 
-import api from "../../../services/api"
+import api from '../../../services/api';
 import { formatPrice } from '../../../util/format';
 
 import { addAoCarrinhoSucesso, alterarQuantidadeSucesso } from './actions';
 
-function* addAoCarrinho({id}) {
-  const produtoExiste = yield select(
-    state => state.carrinho.find(p => p.id === id),
+function* addAoCarrinho({ id }) {
+  const produtoExiste = yield select(state =>
+    state.carrinho.find(p => p.id === id)
   );
 
   const estoque = yield call(api.get, `/stock/${id}`);
@@ -18,33 +18,33 @@ function* addAoCarrinho({id}) {
 
   const quantidade = quantidadeAtual + 1;
 
-  if(quantidade > QuantidadeEstoque) {
-    toast.error('Quantidade fora de estoque!')
+  if (quantidade > QuantidadeEstoque) {
+    toast.error('Quantidade fora de estoque!');
     return;
   }
 
-  if(produtoExiste) {
-    yield put(alterarQuantidadeSucesso(id, quantidade))
+  if (produtoExiste) {
+    yield put(alterarQuantidadeSucesso(id, quantidade));
   } else {
     const response = yield call(api.get, `products/${id}`);
 
     const data = {
       ...response.data,
       quantidade: 1,
-      precoFormatado: formatPrice(response.data.price)
-    }
-  
+      precoFormatado: formatPrice(response.data.price),
+    };
+
     yield put(addAoCarrinhoSucesso(data));
   }
 }
-function* alterarQuantidade({id, quantidade}) {
-  if(quantidade <= 0) return;
+function* alterarQuantidade({ id, quantidade }) {
+  if (quantidade <= 0) return;
 
   const estoque = yield call(api.get, `/stock/${id}`);
   const QuantidadeEstoque = estoque.data.amount;
 
-  if(quantidade > QuantidadeEstoque) {
-    toast.error('Quantidade fora de estoque!')
+  if (quantidade > QuantidadeEstoque) {
+    toast.error('Quantidade fora de estoque!');
     return;
   }
 

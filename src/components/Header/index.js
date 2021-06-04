@@ -15,34 +15,48 @@ function Header() {
 
   return (
     <Container>
-      <Link to='/'>
-          <img src={Logo} alt="Case Maker"/>
+      <Link to="/">
+        <img src={Logo} alt="Case Maker" />
       </Link>
       <div>
         <NavLinks>
           <ul>
-            <li><Home to="/" active={pathname}>HOME</Home></li>
-            <li><Presets to="/">PRESETS</Presets></li>
-            <li><Customizar to="/customizar" active={pathname} >CUSTOMIZAR</Customizar></li>
-          </ul>            
+            <li>
+              <Home to="/" active={pathname}>
+                HOME
+              </Home>
+            </li>
+            <li>
+              <Presets to="/">PRESETS</Presets>
+            </li>
+            <li>
+              <Customizar to="/customizar" active={pathname}>
+                CUSTOMIZAR
+              </Customizar>
+            </li>
+          </ul>
         </NavLinks>
 
         <div>
-          <Link to="/"><img src={SearchSVG} alt="Pesquisar"/></Link>
-            
-          <Link to="cart">{pathname === '/cart' ? 
-            <img src={InCart} alt="No carrinho"/>
-            : 
-            <img src={CartSVG} alt="Carrinho"/> 
-          }
+          <Link to="/">
+            <img src={SearchSVG} alt="Pesquisar" />
           </Link>
-          
-          <Link to="perfil">{pathname === '/perfil' ? 
-            <img src={InLogin} alt="No carrinho"/>
-            : 
-            <img src={ProfileSVG} alt="Perfil"/>
-          }
-          </Link>            
+
+          <Link to="cart">
+            {pathname === '/cart' ? (
+              <img src={InCart} alt="No carrinho" />
+            ) : (
+              <img src={CartSVG} alt="Carrinho" />
+            )}
+          </Link>
+
+          <Link to="perfil">
+            {pathname === '/perfil' ? (
+              <img src={InLogin} alt="No carrinho" />
+            ) : (
+              <img src={ProfileSVG} alt="Perfil" />
+            )}
+          </Link>
         </div>
       </div>
     </Container>

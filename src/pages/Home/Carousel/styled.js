@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   cursor: pointer;
-  
+
   > div {
     position: absolute;
     bottom: 0px;

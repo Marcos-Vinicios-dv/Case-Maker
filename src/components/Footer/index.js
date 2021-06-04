@@ -3,12 +3,11 @@ import { Container } from './styles';
 
 import Logo from '../../assets/images/Logo.svg';
 
-
 export default function Footer() {
   return (
     <Container>
       <section>
-        <img src={Logo} alt=""  width="100px"/>
+        <img src={Logo} alt="" width="100px" />
       </section>
       <section>
         <h3>Desenvolvedores</h3>
@@ -25,5 +24,5 @@ export default function Footer() {
         <p>Reclame Aqui</p>
       </section>
     </Container>
-  )
+  );
 }
