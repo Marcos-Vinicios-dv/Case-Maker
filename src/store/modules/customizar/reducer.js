@@ -1,5 +1,4 @@
-
-export const customizar = (state = (null), action) => {
+export const customizar = (state = [], action) => {
   switch (action.type) {
     case '@customizar/SELECIONAR_GABINETE':
       const { gabinete } = action;
@@ -7,4 +6,4 @@ export const customizar = (state = (null), action) => {
     default:
       return state;
   }
-}
+};

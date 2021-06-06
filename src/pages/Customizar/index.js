@@ -1,119 +1,49 @@
-import React, { useEffect, useState } from 'react';
-
-import Return from '../../assets/images/Return.svg';
-import Paleta from '../../assets/images/Paleta.svg';
-import Brush from '../../assets/images/Brush.svg';
-import Bandage from '../../assets/images/Bandage.svg';
-import Led from '../../assets/images/Led.svg';
-
-import { Container, CustomizeMenu, MenuContent, PC } from './styles';
-import H200 from './Gabinetes/H200';
-import CougarDarkblader from './Gabinetes/CougarDarkblader';
-import AigoDarkflash from './Gabinetes/AigoDarkFlash';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
-const cores = [
-  {
-    cor: '#6ECC4D',
-  },
-  {
-    cor: '#4DCC80',
-  },
-  {
-    cor: '#CC4D4D',
-  },
-  {
-    cor: '#CC4D6B',
-  },
-  {
-    cor: '#CC7A4D',
-  },
-  {
-    cor: '#C9CC4D',
-  },
-  {
-    cor: '#4D59CC',
-  },
-  {
-    cor: '#4D9ECC',
-  },
-  {
-    cor: '#4DC4CC',
-  },
-  {
-    cor: '#7D4DCC',
-  },
-  {
-    cor: '#664DCC',
-  },
-  {
-    cor: '#BA4DCC',
-  },
-];
+import Return from '../../assets/images/Return.svg';
+
+import { Container, CustomizeMenu, MenuContent, PC } from './styles';
+import BarraDeMenu from '../../components/Customizar/BarraDeMenu';
+import ConteudoMenu from '../../components/Customizar/ConteudoMenu';
+import Renderizacao from '../../components/Customizar/Renderizacao';
 
 const Customizar = () => {
-  const [cor, setCor] = useState(null);
   const gabinete = useSelector(state => state.customizar);
+  const [option, setOption] = useState('cores');
+  const [renderizar, setRenderizar] = useState(null);
 
-  useEffect(() => {
-    if (gabinete.id === '') {
-      toast.warning('Selecione um gabinete na tela principal!');
-    }
-  }, [gabinete]);
-
-  function getCor(cor) {
-    setCor(cor);
-    console.log(cor);
+  function selectOption(currentOption) {
+    setOption(currentOption);
   }
 
-  const setAtributo = t => {
-    t.setAttribute('fill', cor);
-  };
+  useEffect(() => {
+    if (gabinete.id === undefined) {
+      toast.warning('Selecione um gabinete na Tela Principal');
+    }
+  }, [gabinete]);
 
   return (
     <Container>
       <img src={Return} alt="" />
 
       <CustomizeMenu>
-        <ul>
-          <li>
-            <img src={Paleta} alt="" />
-          </li>
-          <li>
-            <img src={Brush} alt="" />
-          </li>
-          <li>
-            <img src={Bandage} alt="" />
-          </li>
-          <li>
-            <img src={Led} alt="" />
-          </li>
-        </ul>
+        <BarraDeMenu selectedOption={selectOption} />
       </CustomizeMenu>
 
       <MenuContent>
-        <ul>
-          {cores.map(cor => (
-            <div>
-              <li
-                style={{ backgroundColor: cor.cor }}
-                onClick={() => {
-                  getCor(cor.cor);
-                }}
-              ></li>
-            </div>
-          ))}
-        </ul>
+        <div>
+          <ConteudoMenu option={option} setRenderizacao={setRenderizar}>
+            {gabinete}
+          </ConteudoMenu>
+        </div>
 
         <button type="button">APLICAR</button>
       </MenuContent>
 
       <PC>
-        {gabinete.id === '' && <></>}
-        {gabinete.id === 0 && <H200 setColor={setAtributo} />}
-        {gabinete.id === 1 && <AigoDarkflash setColor={setAtributo} />}
-        {gabinete.id === 2 && <CougarDarkblader setColor={setAtributo} />}
+        <Renderizacao renderizacao={renderizar} />
       </PC>
     </Container>
   );

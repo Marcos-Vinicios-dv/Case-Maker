@@ -5,7 +5,7 @@ import SlideDown from '../../assets/images/SlideDown.svg';
 
 import { Container, PC, CustomButton, MainText } from './styles';
 import Presets from '../Presets';
-import Carousel from './Carousel/Carousel';
+import Gabinetes from '../../components/Carousel/Gabinetes';
 
 const Home = () => {
   return (
@@ -32,7 +32,7 @@ const Home = () => {
         </MainText>
 
         <PC>
-          <Carousel />
+          <Gabinetes />
         </PC>
 
         <img src={SlideDown} alt="Slide Down" />

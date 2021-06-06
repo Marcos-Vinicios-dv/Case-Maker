@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import Engrenagem from '../../assets/images/Engrenagem.svg';
 
 import { Container, ToggleSection, FormSection } from './styles';
-import Login from './Forms/Login/login';
-import Cadastrar from './Forms/Cadastrar/cadastrar';
+import Login from '../../components/Forms/Login/login';
+import Cadastrar from '../../components/Forms/Cadastrar/cadastrar';
 
 const Perfil = () => {
   const [section, setSection] = useState({ cadastrar: false, login: false });
