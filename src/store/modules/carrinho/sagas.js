@@ -21,6 +21,8 @@ function* addAoCarrinho({ id }) {
   if (quantidade > QuantidadeEstoque) {
     toast.error('Quantidade fora de estoque!');
     return;
+  } else {
+    toast.success('Gabinete adicionado com SUCESSO!!!');
   }
 
   if (produtoExiste) {
@@ -46,6 +48,8 @@ function* alterarQuantidade({ id, quantidade }) {
   if (quantidade > QuantidadeEstoque) {
     toast.error('Quantidade fora de estoque!');
     return;
+  } else {
+    toast.success('Gabinete adicionado com SUCESSO!!!');
   }
 
   yield put(alterarQuantidadeSucesso(id, quantidade));

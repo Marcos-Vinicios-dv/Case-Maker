@@ -52,15 +52,17 @@ const Cart = () => {
       <ProductTable cellSpacing="0px">
         <caption>CARRINHO DE COMPRAS</caption>
         <thead>
-          <th />
-          <th>PRODUTOS</th>
-          <th>QTD</th>
-          <th>SUBTOTAL</th>
-          <th />
+          <tr>
+            <th />
+            <th>PRODUTOS</th>
+            <th>QTD</th>
+            <th>SUBTOTAL</th>
+            <th />
+          </tr>
         </thead>
         <tbody>
           {carrinho.map(produto => (
-            <tr>
+            <tr key={produto.id}>
               <td>
                 <button type="button">
                   <img src={Wrench} alt="Customizar" />

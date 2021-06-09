@@ -14,6 +14,8 @@ export const CustomizeMenu = styled.div`
   grid-area: mCustom;
   align-self: center;
   justify-self: center;
+
+  box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.2);
 `;
 
 export const MenuContent = styled.div`
@@ -28,6 +30,7 @@ export const MenuContent = styled.div`
   margin: 5px auto;
 
   background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 
   > div {
@@ -44,6 +47,7 @@ export const MenuContent = styled.div`
     border-radius: 4px;
     border: none;
     background-color: rgba(0, 209, 114, 0.71);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 
     color: #ffff;
     font-weight: bold;

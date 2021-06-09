@@ -19,12 +19,20 @@ const ListaItens = styled.ul`
 
   div {
     background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.2);
     border-radius: 2px;
     height: 50px;
     width: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+      transform: translateY(-3px);
+    }
 
     li {
       height: 40px;
@@ -44,7 +52,7 @@ const ConteudoMenu = ({
 }) => {
   const { camuflagens = [], adesivos = [], leds = [], id = -1 } = gabinete;
   const [cores, setCores] = useState([]);
-  const [corSelecionada, setCorSelecionada] = useState('');
+  const [corSelecionada, setCorSelecionada] = useState('#333333');
 
   useEffect(() => {
     const source = axios.CancelToken.source();

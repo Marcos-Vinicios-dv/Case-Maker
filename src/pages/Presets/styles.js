@@ -65,7 +65,7 @@ export const Gabinete = styled.div`
   img {
     max-width: 70%;
     margin-bottom: 20px;
-    transition: 0.5s ease-in-out;
+    transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
   }
 `;
 

@@ -103,7 +103,10 @@ function Presets() {
                 <span>
                   <img src={Cinco} alt="" /> 5.0
                 </span>
-                <button type="button" onClick={() => addCarrinho(produto.id)}>
+                <button
+                  type="button"
+                  onClick={() => addCarrinho(produto.id, produto.title)}
+                >
                   <img src={Carrinho} alt="" />
                 </button>
               </div>
