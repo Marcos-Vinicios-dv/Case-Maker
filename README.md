@@ -26,6 +26,8 @@
 - <a href="https://fkhadra.github.io/react-toastify/introduction" >react-toatify</a> (notificações personalizadas);
 - <a href="https://polished.js.org/" >polished</a> (efeitos em cores);
 - <a href="https://styled-components.com/" >styled-components</a> (efeitos em cores);
+- <a href="https://unform.dev/" >unform</a> (formilários);
+- <a href="https://github.com/x3388638/react-grid-carousel" >react-grid-carousel</a> (carousel);
 
 
 ## Inicializar projeto
