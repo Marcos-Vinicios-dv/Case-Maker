@@ -1,21 +1,42 @@
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useState } from 'react';
+import { BiMenu } from 'react-icons/bi';
+import { IoClose } from 'react-icons/io5';
 
-import Logo from '../../assets/images/LogoEx.svg';
-import SearchSVG from '../../assets/images/Search.svg';
-import CartSVG from '../../assets/images/Cart.svg';
-import InCart from '../../assets/images/InCart.svg';
-import InLogin from '../../assets/images/InLogin.svg';
-import ProfileSVG from '../../assets/images/Profile.svg';
-
-import { Container, NavLinks, Home, Presets, Customizar } from './styles';
+import logo from '../../../assets/images/logo.svg';
+import { NavLinks } from '../NavLinks';
+import { Container, ResponsiveSideBar } from './styles';
 
 function Header() {
-  const { pathname } = useLocation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <Container>
-      <Link to="/">
+      <img src={logo} alt="logo" />
+      <NavLinks />
+
+      <button type="button" onClick={() => setIsMenuOpen(true)}>
+        <BiMenu />
+      </button>
+
+      <ResponsiveSideBar
+        onClick={() => setIsMenuOpen(false)}
+        isMenuOpen={isMenuOpen}
+      >
+        <aside>
+          <button type="button" onClick={() => setIsMenuOpen(false)}>
+            <IoClose />{' '}
+          </button>
+          <NavLinks />
+        </aside>
+      </ResponsiveSideBar>
+    </Container>
+  );
+}
+
+export default Header;
+
+/*
+<Link to="/">
         <img src={Logo} alt="Case Maker" />
       </Link>
       <div>
@@ -59,8 +80,4 @@ function Header() {
           </Link>
         </div>
       </div>
-    </Container>
-  );
-}
-
-export default Header;
+*/

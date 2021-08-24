@@ -1,10 +1,6 @@
 import React, { useRef, useState } from 'react';
 import * as Yup from 'yup';
 
-import Senha from '../../../assets/images/Senha.svg';
-import Profile from '../../../assets/images/ProfileL.svg';
-import Input from '../../../components/Input/input';
-
 import { Form } from './styles';
 
 function Login() {
@@ -27,7 +23,7 @@ function Login() {
     } catch (err) {
       if (err instanceof Yup.ValidationError) {
         const errorMessages = {};
-        err.inner.forEach(error => {
+        err.inner.forEach((error) => {
           errorMessages[error.path] = error.message;
         });
 
@@ -38,7 +34,7 @@ function Login() {
 
   return (
     <Form ref={formRef} onSubmit={handleSubmit}>
-      <h1>Login</h1>
+      {/* <h1>Login</h1>
       <div>
         <img src={Profile} alt="" />
         <Input type="email" name="email" placeholder="E-mail" />
@@ -50,7 +46,7 @@ function Login() {
       </div>
       {erros && <label>{erros.senha}</label>}
       <strong>Esqueci minha senha</strong>
-      <button type="submit">LOGIN</button>
+      <button type="submit">LOGIN</button> */}
     </Form>
   );
 }

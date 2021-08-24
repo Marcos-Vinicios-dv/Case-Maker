@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-import Engrenagem from '../../assets/images/Engrenagem.svg';
-
 import { Container, ToggleSection, FormSection } from './styles';
 import Login from '../../components/Forms/Login/login';
 import Cadastrar from '../../components/Forms/Cadastrar/cadastrar';
@@ -17,7 +15,7 @@ const Perfil = () => {
   }
   return (
     <Container>
-      <ToggleSection cadastrar={section.cadastrar} login={section.login}>
+      {/* <ToggleSection cadastrar={section.cadastrar} login={section.login}>
         <div>
           <strong>
             Customize sua <span>MÁQUINA</span>!
@@ -39,7 +37,7 @@ const Perfil = () => {
 
       <FormSection cadastrar={section.cadastrar} login={section.login}>
         {section.cadastrar ? <Cadastrar /> : <Login />}
-      </FormSection>
+      </FormSection> */}
     </Container>
   );
 };

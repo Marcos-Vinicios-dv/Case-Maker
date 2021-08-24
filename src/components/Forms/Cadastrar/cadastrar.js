@@ -38,7 +38,7 @@ function Cadastrar(cadastrar, login) {
     } catch (err) {
       if (err instanceof Yup.ValidationError) {
         const errorMessages = {};
-        err.inner.forEach(error => {
+        err.inner.forEach((error) => {
           errorMessages[error.path] = error.message;
         });
 
@@ -50,7 +50,7 @@ function Cadastrar(cadastrar, login) {
   return (
     <Form ref={formRef} onSubmit={handleSubmit}>
       <h1>Cadastrar</h1>
-      <InputSection>
+      {/* <InputSection>
         <div>
           <Input type="text" name="nome" placeholder="Nome completo" />
         </div>
@@ -89,7 +89,7 @@ function Cadastrar(cadastrar, login) {
           </div>
           {erros && <label>{erros['endereco.cep']}</label>}
         </Scope>
-      </InputSection>
+      </InputSection> */}
       <button type="submit">CADASTRAR</button>
     </Form>
   );

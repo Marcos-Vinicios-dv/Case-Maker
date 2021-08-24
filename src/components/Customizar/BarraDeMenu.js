@@ -1,8 +1,3 @@
-import Paleta from '../../assets/images/Paleta.svg';
-import Brush from '../../assets/images/Brush.svg';
-import Bandage from '../../assets/images/Bandage.svg';
-import Led from '../../assets/images/Led.svg';
-
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -47,7 +42,7 @@ const BarraDeMenu = ({ selectedOption = null }) => {
 
   return (
     <Container>
-      <ul>
+      {/* <ul>
         <li>
           <img id="cores" src={Paleta} alt="cores" onClick={onClickOption} />
         </li>
@@ -70,7 +65,7 @@ const BarraDeMenu = ({ selectedOption = null }) => {
         <li>
           <img id="leds" src={Led} alt="leds" onClick={onClickOption} />
         </li>
-      </ul>
+      </ul> */}
     </Container>
   );
 };

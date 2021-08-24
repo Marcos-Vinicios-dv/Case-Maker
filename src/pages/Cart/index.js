@@ -1,4 +1,3 @@
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as CarrinhoActions from '../../store/modules/carrinho/actions';
 
@@ -7,22 +6,20 @@ import {
   MdAddCircleOutline,
   MdDelete,
 } from 'react-icons/md';
-import Wrench from '../../assets/images/Wrench.svg';
-import Frete from '../../assets/images/Frete.svg';
 
 import { Container, ProductTable, FreteList, Total, Barra } from './styles';
 import { formatPrice } from '../../util/format';
 
 const Cart = () => {
-  const total = useSelector(state =>
+  const total = useSelector((state) =>
     formatPrice(
       state.carrinho.reduce((total, produto) => {
         return total + produto.price * produto.quantidade;
       }, 0)
     )
   );
-  const carrinho = useSelector(state =>
-    state.carrinho.map(produto => ({
+  const carrinho = useSelector((state) =>
+    state.carrinho.map((produto) => ({
       ...produto,
       subTotal: formatPrice(produto.price * produto.quantidade),
     }))
@@ -49,7 +46,7 @@ const Cart = () => {
 
   return (
     <Container>
-      <ProductTable cellSpacing="0px">
+      {/* <ProductTable cellSpacing="0px">
         <caption>CARRINHO DE COMPRAS</caption>
         <thead>
           <tr>
@@ -102,7 +99,7 @@ const Cart = () => {
         </tbody>
       </ProductTable>
 
-      {/* <Barra/> */}
+      {/* <Barra/> 
 
       <FreteList>
         <span>
@@ -119,7 +116,7 @@ const Cart = () => {
           <strong>{total}</strong>
         </div>
         <button type="button">FINALIZAR COMPRA</button>
-      </Total>
+      </Total> */}
     </Container>
   );
 };
