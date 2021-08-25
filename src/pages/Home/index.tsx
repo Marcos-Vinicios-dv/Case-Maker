@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import { Container, InformationSection, LandingPage } from './styles';
-// import Presets from '../Presets';
+import Presets from '../Presets';
 
 const Home = () => {
   return (
@@ -22,8 +22,8 @@ const Home = () => {
             </Link>
           </InformationSection>
         </LandingPage>
+        <Presets />
       </Container>
-      {/* <Presets /> */}
     </>
   );
 };

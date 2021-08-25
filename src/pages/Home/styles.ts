@@ -13,6 +13,12 @@ export const LandingPage = styled.div`
 
   display: flex;
   align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
 `;
 
 export const InformationSection = styled.section`
@@ -29,19 +35,19 @@ export const InformationSection = styled.section`
   }
 
   p {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     width: 480px;
     margin: 1rem 0 1.6rem 0;
   }
 
   button {
     color: var(--gray-50);
+    font-size: 1.15rem;
     font-weight: 500;
     background-color: var(--green);
 
     border: none;
     border-radius: 4px;
-
     padding: 0.5rem 1.8rem;
 
     transition: 0.2s ease;
@@ -64,6 +70,11 @@ export const InformationSection = styled.section`
       font-size: 1rem;
       width: 400px;
       margin: 0.8rem 0 1.2rem 0;
+    }
+
+    button {
+      font-size: 1rem;
+      padding: 0.4rem 1.2rem;
     }
   }
 

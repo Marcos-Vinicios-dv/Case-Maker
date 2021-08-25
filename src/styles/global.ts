@@ -33,22 +33,22 @@ export default createGlobalStyle`
 
     ::-webkit-scrollbar-track
     {
-      box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      box-shadow: inset 0 0 6px rgba(0,0,0,0.0);
       border-radius: 10px;
       background-color: none;
     }
 
     ::-webkit-scrollbar
     {
-      width: 10px;
-      background-color: #1E2832;
+      width: 8px;
+      background-color: #202A36;
     }
 
     ::-webkit-scrollbar-thumb
     {
-      border-radius: 10px;
-      box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-      background-color: rgba(196, 196, 196, 0.3);
+      border-radius: 30px;
+      box-shadow: inset 0 0 6px #202A36;
+      background-color: #929292;
     }   
   }
 
