@@ -6,15 +6,11 @@ import Logo from '../../assets/images/Logo.svg';
 export default function Footer() {
   return (
     <Container>
-      <section>
-        <img src={Logo} alt="" width="100px" />
-      </section>
+      <img src={Logo} alt="Logo" />
       <section>
         <h3>Desenvolvedores</h3>
         <p>Marcos Vinicios teixeira</p>
         <p>Nadson Cardoso do Nascimento</p>
-        {/* <p>Maykon Rodrigo Henrique</p>
-        <p>Andrei Gonçalves</p> */}
         <p>Luiz Felipe Pio</p>
       </section>
       <section>

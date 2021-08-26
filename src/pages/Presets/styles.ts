@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 
   margin: 0 auto;
 
@@ -34,8 +34,8 @@ export const Container = styled.div`
       font-size: 1.6rem;
     }
 
-    p {
-      font-size: 0.9rem;
+    > p {
+      text-align: center;
     }
   }
 `;
@@ -46,8 +46,26 @@ export const ContentBox = styled.div`
   margin-top: 4rem;
 
   display: flex;
+
+  aside {
+    margin-right: 4rem;
+  }
+
+  @media (max-width: 900px) {
+    > aside {
+      display: none;
+    }
+  }
 `;
 
 export const ListaDeProdutos = styled.ul`
+  flex: 1;
   list-style: none;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+
+  align-content: center;
+  justify-items: center;
 `;

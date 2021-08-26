@@ -1,9 +1,9 @@
-// import { useEffect, useState } from 'react';
 // import api from '../../services/api';
 // import { useDispatch } from 'react-redux';
 
 import { CardProduct } from '../../components/CardProduct';
 import { Filtros } from '../../components/Filtro';
+import { ResponsiveFilter } from '../../components/Filtro/ResponsiveFilter';
 import { Container, ContentBox, ListaDeProdutos } from './styles';
 
 // import * as CarrinhoActions from '../../store/modules/carrinho/actions';
@@ -43,8 +43,13 @@ function Presets() {
 
       <ContentBox>
         <Filtros />
-
+        <ResponsiveFilter />
         <ListaDeProdutos>
+          <CardProduct />
+          <CardProduct />
+          <CardProduct />
+          <CardProduct />
+          <CardProduct />
           <CardProduct />
         </ListaDeProdutos>
       </ContentBox>

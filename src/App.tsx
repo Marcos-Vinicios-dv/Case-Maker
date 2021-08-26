@@ -9,6 +9,7 @@ import Header from './components/Navigation/Header';
 import GlobalStyles from './styles/global';
 
 import store from './store';
+import Footer from './components/Footer';
 // import Footer from './components/Footer';
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
         <Routes />
         <GlobalStyles />
         <ToastContainer autoClose={3000} />
-        {/* <Footer /> */}
+        <Footer />
       </BrowserRouter>
     </Provider>
   );

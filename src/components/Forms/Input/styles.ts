@@ -1,0 +1,46 @@
+import styled from 'styled-components';
+
+export const InputContainer = styled.span`
+  background-color: var(--gunmetal-600);
+
+  position: relative;
+
+  padding: 0.8rem;
+  border-radius: 4px;
+  border: 1px solid var(--gunmetal-600);
+
+  transition: 0.2s ease;
+
+  &:focus-within {
+    border-color: var(--green);
+  }
+
+  input {
+    width: 100%;
+    color: var(--gray-200);
+    background: none;
+    border: none;
+
+    &::placeholder {
+      color: #3c4856;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:-webkit-autofill {
+      border: none;
+      box-shadow: 0 0 0 30px var(--gunmetal-600) inset;
+      -webkit-text-fill-color: var(--gray-200) !important;
+    }
+  }
+
+  span {
+    display: block;
+    color: var(--green);
+    position: absolute;
+    bottom: -1.8rem;
+    left: 0;
+  }
+`;

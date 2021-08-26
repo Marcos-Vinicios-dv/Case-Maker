@@ -5,6 +5,11 @@ export const Container = styled.main`
   max-width: 1370px;
 
   margin: 0 auto;
+  margin-bottom: 2rem;
+
+  @media (max-width: 900px) {
+    margin-bottom: 6rem;
+  }
 `;
 
 export const LandingPage = styled.div`
@@ -80,19 +85,13 @@ export const InformationSection = styled.section`
 
   @media (max-width: 600px) {
     h1 {
-      font-size: 1.6rem;
-      line-height: 2rem;
+      font-size: 2rem;
+      line-height: 2.15rem;
     }
 
     p {
-      font-size: 0.9rem;
-      width: 300px;
+      width: 320px;
       margin: 0.8rem 0 1.2rem 0;
-    }
-
-    button {
-      font-size: 0.9rem;
-      padding: 0.4rem 1.2rem;
     }
   }
 `;

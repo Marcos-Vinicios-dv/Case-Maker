@@ -41,8 +41,7 @@ interface ResponsiveSideBarPros {
 export const ResponsiveSideBar = styled.div<ResponsiveSideBarPros>`
   position: fixed;
 
-  transition: opacity 0.5s ease,
-    right 0s ease ${({ isMenuOpen }) => (isMenuOpen ? '0' : '0.2s')};
+  transition: right 0s ease ${({ isMenuOpen }) => (isMenuOpen ? '0' : '0.2s')};
   top: 0;
   right: ${({ isMenuOpen }) => (isMenuOpen ? '0' : '-110%')};
   z-index: 2;
