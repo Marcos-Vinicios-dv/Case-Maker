@@ -3,7 +3,7 @@ import { BiPlus } from 'react-icons/bi';
 
 import { Container } from './styles';
 
-import pc from '../../assets/images/pc.png';
+import pc from '../../../assets/images/pc.png';
 
 export const CardProduct = () => {
   return (

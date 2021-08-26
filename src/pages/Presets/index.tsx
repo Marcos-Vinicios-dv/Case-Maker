@@ -1,7 +1,7 @@
 // import api from '../../services/api';
 // import { useDispatch } from 'react-redux';
 
-import { CardProduct } from '../../components/CardProduct';
+import { CardProduct } from '../../components/Cards/CardProductList';
 import { Filtros } from '../../components/Filtro';
 import { ResponsiveFilter } from '../../components/Filtro/ResponsiveFilter';
 import { Container, ContentBox, ListaDeProdutos } from './styles';

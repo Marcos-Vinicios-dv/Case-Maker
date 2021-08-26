@@ -19,7 +19,7 @@ export const NavLinks = () => {
         Customizar
       </StyledLink>
       <div>
-        <StyledLink to="/carrinho" isActive={pathname === '/carrinho' ? 1 : 0}>
+        <StyledLink to="/cart" isActive={pathname === '/cart' ? 1 : 0}>
           <MdShoppingCart />
         </StyledLink>
         <StyledLink to="/login" isActive={pathname === '/login' ? 1 : 0}>

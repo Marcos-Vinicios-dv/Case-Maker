@@ -16,6 +16,10 @@ export const Container = styled.header`
   }
 
   @media (max-width: 600px) {
+    img {
+      width: 130px;
+    }
+
     > nav {
       display: none;
     }
