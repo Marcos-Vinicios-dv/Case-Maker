@@ -14,7 +14,7 @@ export const CardProduct = () => {
         <FaStar />
         4,5 <span>Em estoque</span>
       </span>
-      <span className="main-info">
+      <span className="info">
         R$ <span>450</span>,00
       </span>
       <button type="button">

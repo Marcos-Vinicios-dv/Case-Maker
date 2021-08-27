@@ -34,4 +34,4 @@ export const Container = styled.aside`
   }
 `;
 
-export const Rating = styled.div``;
+export const RatingContainer = styled.div``;

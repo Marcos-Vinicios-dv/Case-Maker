@@ -33,7 +33,6 @@ export const SignInform = () => {
         name="email"
         type="email"
         placeholder="E-mail"
-        autoFocus
         error={errors.email}
         {...register('email')}
       />

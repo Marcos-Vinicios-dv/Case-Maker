@@ -1,4 +1,5 @@
-import { Container, Rating } from './styles';
+import { Container, RatingContainer } from './styles';
+import Rating from 'react-rating';
 
 export const Filtros = () => {
   return (
@@ -19,9 +20,10 @@ export const Filtros = () => {
         <input type="range" />
       </div>
 
-      <Rating>
+      <RatingContainer>
         <h2>Avaliação</h2>
-      </Rating>
+        <Rating />
+      </RatingContainer>
     </Container>
   );
 };

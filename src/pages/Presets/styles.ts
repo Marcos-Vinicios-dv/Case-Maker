@@ -31,7 +31,7 @@ export const Container = styled.div`
 
   @media (max-width: 600px) {
     h1 {
-      font-size: 1.6rem;
+      font-size: 1.75rem;
     }
 
     > p {
@@ -68,4 +68,8 @@ export const ListaDeProdutos = styled.ul`
 
   align-content: center;
   justify-items: center;
+
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+  }
 `;

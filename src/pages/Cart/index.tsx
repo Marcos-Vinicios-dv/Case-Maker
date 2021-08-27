@@ -44,12 +44,15 @@ const Cart = () => {
       <h1>Carrinho</h1>
       <CartList>
         <CardCartList />
+        <CardCartList />
       </CartList>
       <div>
-        <span>Total</span>
-        <strong>
-          R$ <span>500</span>,00
-        </strong>
+        <span>
+          <span>Total</span>
+          <strong>
+            R$ <span>500</span>,00
+          </strong>
+        </span>
         <button>Finalizar pedido</button>
       </div>
     </Container>

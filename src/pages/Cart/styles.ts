@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 90%;
   max-width: 1370px;
-  min-height: 100vh;
+  min-height: calc(100vh - 4rem);
 
   margin: 0 auto;
 
@@ -48,6 +48,42 @@ export const Container = styled.div`
       color: var(--gray-300);
       font-weight: 500;
       font-size: 0.8rem;
+    }
+  }
+
+  @media (max-width: 900px) {
+    h1 {
+      font-size: 2.15rem;
+      margin-top: 1.15rem;
+    }
+
+    > div {
+      padding-top: 1.75rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 1.75rem;
+    }
+  }
+
+  @media (max-width: 425px) {
+    position: relative;
+
+    > div {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      padding-top: 0rem;
+
+      position: absolute;
+      bottom: 2rem;
+
+      button {
+        margin: 0.8rem 0 0;
+        width: 100%;
+      }
     }
   }
 `;

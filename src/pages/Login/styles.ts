@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 90%;
   max-width: 1370px;
-  min-height: 100vh;
+  min-height: calc(100vh - 4rem);
 
   margin: 0 auto;
 
@@ -21,7 +21,7 @@ export const Container = styled.div`
     justify-content: flex-start;
 
     section {
-      margin-top: 5%;
+      margin-top: 1.15rem;
     }
   }
 `;
@@ -56,7 +56,7 @@ export const LogoSection = styled.section`
     padding-right: 0;
 
     position: absolute;
-    bottom: 5.5rem;
+    bottom: 1.5rem;
 
     img {
       display: none;
