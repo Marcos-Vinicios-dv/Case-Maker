@@ -13,6 +13,24 @@ export const Container = styled.aside`
     padding: 1.5rem 0;
   }
 
+  div:nth-child(2) {
+    .MuiSlider-root {
+      color: var(--green);
+    }
+
+    .MuiSlider-rail {
+      padding: 0.1rem 0;
+    }
+
+    .MuiSlider-track {
+      padding: 0.1rem 0;
+    }
+
+    .MuiSlider-thumb {
+      padding: 0.1rem 0;
+    }
+  }
+
   ul {
     list-style: none;
     margin: 0 0 1.15rem 0;
@@ -34,4 +52,23 @@ export const Container = styled.aside`
   }
 `;
 
-export const RatingContainer = styled.div``;
+export const RatingContainer = styled.div`
+  .MuiRating-root {
+    width: 60%;
+    display: flex;
+    color: var(--yellow);
+    padding: 0.2rem 0;
+  }
+
+  .MuiRating-icon {
+    padding: 0;
+  }
+
+  .MuiRating-decimal {
+    padding: 0;
+  }
+
+  .MuiRating-iconEmpty {
+    color: var(--gray-300);
+  }
+`;

@@ -1,7 +1,18 @@
+import Rating from '@material-ui/lab/Rating';
+import Slider from '@material-ui/core/Slider';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
+
 import { Container, RatingContainer } from './styles';
-import Rating from 'react-rating';
+import { useState } from 'react';
 
 export const Filtros = () => {
+  const [inputRangeValue, setInputRangeValue] = useState<number[]>([100, 200]);
+  const [ratingValue, setRatingValue] = useState<number | null>(2);
+
+  function handleInputRangeChange(event: any, newValue: number | number[]) {
+    setInputRangeValue(newValue as number[]);
+  }
+
   return (
     <Container>
       <div>
@@ -17,12 +28,23 @@ export const Filtros = () => {
       <div>
         <h2>Preço</h2>
         <span>R$ 200,00</span>
-        <input type="range" />
+        <Slider
+          value={inputRangeValue}
+          onChange={handleInputRangeChange}
+          aria-labelledby="range-slider"
+          max={1000}
+        />
       </div>
 
       <RatingContainer>
         <h2>Avaliação</h2>
-        <Rating />
+        <Rating
+          name="customized-empty"
+          value={ratingValue}
+          precision={0.5}
+          onChange={(event, newValue) => setRatingValue(newValue)}
+          emptyIcon={<StarBorderIcon fontSize="inherit" />}
+        />
       </RatingContainer>
     </Container>
   );

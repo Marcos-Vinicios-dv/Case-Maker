@@ -38,7 +38,7 @@ export const ContainerFilter = styled.div<ContainerFilterProps>`
     bottom: ${({ isOpen }) => (isOpen ? '2rem' : '0')};
     left: ${({ isOpen }) => (isOpen ? '2rem' : '0')};
 
-    svg {
+    > svg {
       width: 30px;
       height: 30px;
       color: var(--gray-50);
