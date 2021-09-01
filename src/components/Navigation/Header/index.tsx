@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { BiMenu } from 'react-icons/bi';
 import { IoClose } from 'react-icons/io5';
+import { Link } from 'react-router-dom';
 
 import logo from '../../../assets/images/logo.svg';
 import { NavLinks } from '../NavLinks';
@@ -11,7 +12,9 @@ function Header() {
 
   return (
     <Container>
-      <img src={logo} alt="logo" />
+      <Link to="/">
+        <img src={logo} alt="logo" />
+      </Link>
       <NavLinks />
 
       <button type="button" onClick={() => setIsMenuOpen(true)}>
@@ -34,50 +37,3 @@ function Header() {
 }
 
 export default Header;
-
-/*
-<Link to="/">
-        <img src={Logo} alt="Case Maker" />
-      </Link>
-      <div>
-        <NavLinks>
-          <ul>
-            <li>
-              <Home to="/" active={pathname}>
-                HOME
-              </Home>
-            </li>
-            <li>
-              <Presets to="/">PRESETS</Presets>
-            </li>
-            <li>
-              <Customizar to="/customizar" active={pathname}>
-                CUSTOMIZAR
-              </Customizar>
-            </li>
-          </ul>
-        </NavLinks>
-
-        <div>
-          <Link to="/">
-            <img src={SearchSVG} alt="Pesquisar" />
-          </Link>
-
-          <Link to="cart">
-            {pathname === '/cart' ? (
-              <img src={InCart} alt="No carrinho" />
-            ) : (
-              <img src={CartSVG} alt="Carrinho" />
-            )}
-          </Link>
-
-          <Link to="perfil">
-            {pathname === '/perfil' ? (
-              <img src={InLogin} alt="No carrinho" />
-            ) : (
-              <img src={ProfileSVG} alt="Perfil" />
-            )}
-          </Link>
-        </div>
-      </div>
-*/

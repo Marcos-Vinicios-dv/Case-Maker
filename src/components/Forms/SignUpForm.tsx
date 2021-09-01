@@ -4,6 +4,8 @@ import * as yup from 'yup';
 
 import { Input } from './Input/input';
 import { Form } from './styles';
+import { useApi } from '../../services/hooks/useApi';
+import { useState } from 'react';
 
 type CreateUserFormData = {
   name: string;
@@ -11,6 +13,10 @@ type CreateUserFormData = {
   password: string;
   password_confirmation: string;
 };
+
+interface SignUpFormProps {
+  onToggleForm: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
 const CreateUserFormSchema = yup.object().shape({
   name: yup.string().required('Nome obrigatório'),
@@ -24,19 +30,36 @@ const CreateUserFormSchema = yup.object().shape({
     .oneOf([null, yup.ref('password')], 'As senhas precisam ser iguais'),
 });
 
-export const SignUpForm = () => {
+export const SignUpForm = ({ onToggleForm }: SignUpFormProps) => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const { signUp } = useApi();
   const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(CreateUserFormSchema),
   });
 
   const { errors } = formState;
 
-  const handleCreateSubmit: SubmitHandler<CreateUserFormData> = (values) => {
-    console.log(values);
+  const handleCreateSubmit: SubmitHandler<CreateUserFormData> = async ({
+    email,
+    name,
+    password,
+  }) => {
+    try {
+      setIsLoading(true);
+      signUp(email, name, password);
+
+      setTimeout(() => {
+        setIsLoading(false);
+        onToggleForm(false);
+      }, 500);
+    } catch (e) {
+      console.warn(e);
+    }
   };
 
   return (
-    <Form onSubmit={handleSubmit(handleCreateSubmit)}>
+    <Form onSubmit={handleSubmit(handleCreateSubmit)} loading={+isLoading}>
       <h1>Cadastrar</h1>
       <Input
         name="name"
@@ -67,7 +90,7 @@ export const SignUpForm = () => {
         error={errors.password_confirmation}
         {...register('password_confirmation')}
       />
-      <button type="submit">Cadastrar</button>
+      <button type="submit">{isLoading ? 'Carregando...' : 'Cadastrar'}</button>
     </Form>
   );
 };

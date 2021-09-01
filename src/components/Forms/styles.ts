@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const Form = styled.form`
+interface FormProps {
+  loading?: number;
+}
+
+export const Form = styled.form<FormProps>`
   padding-bottom: 2rem;
 
   max-width: 272px;
@@ -27,6 +31,9 @@ export const Form = styled.form`
     border-radius: 4px;
 
     transition: 0.2s ease;
+
+    filter: ${({ loading }) => loading && 'brightness(0.8)'};
+
     &:hover {
       filter: brightness(0.8);
     }
@@ -50,7 +57,6 @@ export const Form = styled.form`
   }
 
   animation: fadeInBack 1s cubic-bezier(0.075, 0.82, 0.165, 1) both;
-
   @keyframes fadeInBack {
     from {
       transform: translateX(80px);

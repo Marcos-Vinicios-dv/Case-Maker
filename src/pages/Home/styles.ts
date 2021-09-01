@@ -76,22 +76,19 @@ export const InformationSection = styled.section`
       width: 400px;
       margin: 0.8rem 0 1.2rem 0;
     }
-
-    button {
-      font-size: 1rem;
-      padding: 0.4rem 1.2rem;
-    }
   }
 
   @media (max-width: 600px) {
-    h1 {
-      font-size: 2rem;
-      line-height: 2.15rem;
-    }
-
     p {
       width: 320px;
       margin: 0.8rem 0 1.2rem 0;
+    }
+  }
+
+  @media (max-width: 375px) {
+    h1 {
+      font-size: 2rem;
+      line-height: 2.15rem;
     }
   }
 `;

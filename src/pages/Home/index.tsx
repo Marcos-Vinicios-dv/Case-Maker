@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 
-import { Container, InformationSection, LandingPage } from './styles';
 import Presets from '../Presets';
+
+import { Container, InformationSection, LandingPage } from './styles';
 
 const Home = () => {
   return (

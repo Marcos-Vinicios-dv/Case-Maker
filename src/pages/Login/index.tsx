@@ -14,18 +14,20 @@ const Login = () => {
       <LogoSection>
         <img src={logo} alt="Logo" />
         <span onClick={() => setIsSignUp(!isSignUp)}>
-          {isSignUp ? (
+          {!isSignUp ? (
             <>
               Não tem uma conta? <span>Cadastre-se</span>
             </>
           ) : (
             <>
-              Não tem uma conta? Faça <span>Login</span>
+              Já possui uma conta? Faça <span>Login</span>
             </>
           )}
         </span>
       </LogoSection>
-      <FormSection>{isSignUp ? <SignUpForm /> : <SignInform />}</FormSection>
+      <FormSection>
+        {isSignUp ? <SignUpForm onToggleForm={setIsSignUp} /> : <SignInform />}
+      </FormSection>
     </Container>
   );
 };

@@ -13,6 +13,7 @@ export const Container = styled.div`
   h1 {
     color: var(--gray-50);
     margin-bottom: 1.6rem;
+    font-size: 2.15rem;
   }
 
   p {
@@ -66,8 +67,7 @@ export const ListaDeProdutos = styled.ul`
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 
-  align-content: center;
-  justify-items: center;
+  place-items: center;
 
   @media (max-width: 600px) {
     grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));

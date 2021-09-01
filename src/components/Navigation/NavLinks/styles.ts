@@ -57,7 +57,7 @@ export const Container = styled.nav`
       a + a {
         margin-left: auto;
         &::before {
-          content: 'Login';
+          content: 'Perfil';
           left: -55px;
         }
       }

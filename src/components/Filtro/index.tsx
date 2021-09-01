@@ -27,7 +27,10 @@ export const Filtros = () => {
 
       <div>
         <h2>Preço</h2>
-        <span>R$ 200,00</span>
+        <span>
+          <span>MIN R$ {inputRangeValue[0]},00</span>
+          <span>MAX R$ {inputRangeValue[1]},00</span>
+        </span>
         <Slider
           value={inputRangeValue}
           onChange={handleInputRangeChange}

@@ -1,9 +1,15 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { Form } from './styles';
-
 import * as yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
 import { Input } from './Input/input';
+import { useApi } from '../../services/hooks/useApi';
+
+import { Form } from './styles';
+import { signInUser } from '../../store/modules/user/actions';
+import { useState } from 'react';
 
 type SignInFormData = {
   email: string;
@@ -16,18 +22,43 @@ const sigInFormSchema = yup.object().shape({
 });
 
 export const SignInform = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const { signIn } = useApi();
   const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(sigInFormSchema),
   });
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const { errors } = formState;
 
-  const handleSignIn: SubmitHandler<SignInFormData> = async (values) => {
-    console.log(values);
+  const handleSignIn: SubmitHandler<SignInFormData> = async ({
+    email,
+    password,
+  }) => {
+    try {
+      setIsLoading(true);
+      const { usuario } = await signIn(email, password);
+
+      dispatch(signInUser(usuario));
+
+      const serialUser = JSON.stringify({
+        email: usuario.email,
+        nome: usuario.nome,
+        token: usuario.token,
+      });
+      localStorage.setItem('user', serialUser);
+      setIsLoading(false);
+      history.push('/');
+    } catch (e) {
+      console.warn(e);
+      setIsLoading(false);
+    }
   };
 
   return (
-    <Form onSubmit={handleSubmit(handleSignIn)}>
+    <Form onSubmit={handleSubmit(handleSignIn)} loading={+isLoading}>
       <h1>Login</h1>
       <Input
         name="email"
@@ -44,7 +75,7 @@ export const SignInform = () => {
         {...register('password')}
       />
 
-      <button type="submit">Login</button>
+      <button type="submit">{isLoading ? 'Carregando...' : 'Login'}</button>
       <span>Esqueci minha senha</span>
     </Form>
   );

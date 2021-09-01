@@ -15,6 +15,11 @@ export const Container = styled.header`
     display: none;
   }
 
+  > a {
+    display: flex;
+    align-items: center;
+  }
+
   @media (max-width: 600px) {
     img {
       width: 130px;

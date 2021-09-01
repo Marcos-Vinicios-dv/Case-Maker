@@ -22,7 +22,10 @@ export const NavLinks = () => {
         <StyledLink to="/cart" isActive={pathname === '/cart' ? 1 : 0}>
           <MdShoppingCart />
         </StyledLink>
-        <StyledLink to="/login" isActive={pathname === '/login' ? 1 : 0}>
+        <StyledLink
+          to="/login"
+          isActive={pathname === '/login' || pathname === '/perfil' ? 1 : 0}
+        >
           <IoPersonSharp />
         </StyledLink>
       </div>
