@@ -10,8 +10,11 @@ export const Container = styled.nav`
   div {
     margin-left: 6.99rem;
 
+    a span {
+      display: none;
+    }
     a + a {
-      margin-left: 1rem;
+      margin-left: 1.15rem;
     }
   }
 
@@ -38,27 +41,17 @@ export const Container = styled.nav`
       border-bottom: 2px solid var(--gunmetal-500);
 
       a {
-        display: block;
-        width: 30px;
-        margin-left: auto;
+        display: flex;
+        justify-content: flex-end;
 
-        position: relative;
-        right: -6px;
-
-        &::before {
-          content: 'Carrinho';
-          position: absolute;
-          left: -85px;
-          top: 2px;
+        span {
+          display: block;
+          margin: 0 1rem 0 0;
           font-weight: 400;
         }
-      }
 
-      a + a {
-        margin-left: auto;
-        &::before {
-          content: 'Perfil';
-          left: -55px;
+        & + a {
+          margin-top: 1rem;
         }
       }
     }
@@ -66,13 +59,13 @@ export const Container = styled.nav`
 `;
 
 interface StyledLinkProps {
-  isActive: number;
+  active: number;
 }
 
 export const StyledLink = styled(Link)<StyledLinkProps>`
   font-size: 1.2rem;
   font-weight: 600;
-  color: ${({ isActive }) => (isActive ? 'var(--green)' : 'var(--gray-100)')};
+  color: ${({ active }) => (active ? 'var(--green)' : 'var(--gray-100)')};
 
   svg {
     width: 24px;

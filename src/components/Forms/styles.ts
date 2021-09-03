@@ -54,6 +54,10 @@ export const Form = styled.form<FormProps>`
       filter: brightness(1.2);
       cursor: pointer;
     }
+
+    a {
+      color: #3c4856;
+    }
   }
 
   animation: fadeInBack 1s cubic-bezier(0.075, 0.82, 0.165, 1) both;

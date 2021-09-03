@@ -9,9 +9,16 @@ export const signInUser = (user: User) => {
   };
 };
 
-export const Logout = () => {
+export const logout = () => {
   return {
     type: 'LOGOUT',
     payload: {},
+  };
+};
+
+export const updateUser = (user: User) => {
+  return {
+    type: 'UPDATE_USER',
+    payload: { user },
   };
 };

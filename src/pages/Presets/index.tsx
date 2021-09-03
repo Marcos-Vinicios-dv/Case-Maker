@@ -9,24 +9,13 @@ import { Container, ContentBox, ListaDeProdutos } from './styles';
 // import * as CarrinhoActions from '../../store/modules/carrinho/actions';
 // import { formatPrice } from '../../util/format';
 
-function Presets() {
+const Presets = () => {
+  // const { getProducts } = useApi();
+
   // const [produtos, setProdutos] = useState([]);
   // const [range, setRange] = useState(100);
   // const input = document.getElementById('preco');
   // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   async function carregarProdutos() {
-  //     const response = await api.get('products');
-
-  //     const data = response.data.map(produto => ({
-  //       ...produto,
-  //       precoFormatado: formatPrice(produto.price),
-  //     }));
-  //     setProdutos(data);
-  //   }
-  //   carregarProdutos();
-  // }, []);
 
   // function addCarrinho(id) {
   //   dispatch(CarrinhoActions.solicitarAddAoCarrinho(id));
@@ -55,6 +44,6 @@ function Presets() {
       </ContentBox>
     </Container>
   );
-}
+};
 
 export default Presets;

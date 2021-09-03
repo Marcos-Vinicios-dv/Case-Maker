@@ -1,12 +1,12 @@
 import React from 'react';
 import { Container } from './styles';
 
-import Logo from '../../assets/images/Logo.svg';
+import logoExtends from '../../assets/images/logoExtends.svg';
 
 export default function Footer() {
   return (
     <Container>
-      <img src={Logo} alt="Logo" />
+      <img src={logoExtends} alt="Logo" />
       <section>
         <h3>Desenvolvedores</h3>
         <p>Marcos Vinicios teixeira</p>

@@ -27,6 +27,22 @@ export const Form = styled.form`
 
     span {
       background-color: var(--gunmetal-700);
+
+      input {
+        &::placeholder {
+          color: #3c4856;
+        }
+
+        &:focus {
+          outline: none;
+        }
+
+        &:-webkit-autofill {
+          border: none;
+          box-shadow: 0 0 0 30px var(--gunmetal-700) inset;
+          -webkit-text-fill-color: var(--gray-200) !important;
+        }
+      }
     }
   }
 
@@ -48,6 +64,14 @@ export const Form = styled.form`
     &:hover {
       color: var(--gray-50);
       background-color: var(--green);
+    }
+
+    &:disabled {
+      cursor: default;
+      &:hover {
+        color: #3c4856;
+        background-color: inherit;
+      }
     }
   }
 

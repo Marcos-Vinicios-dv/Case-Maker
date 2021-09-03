@@ -14,6 +14,12 @@ interface useApiData {
     nome: string,
     password: string
   ) => Promise<ApiResponseSignUp>;
+  editUser: (
+    email: string,
+    nome: string,
+    password: string,
+    token: string
+  ) => Promise<ApiResponseEditUser>;
 }
 
 export type User = {
@@ -22,13 +28,13 @@ export type User = {
   token: string;
 };
 
-// interface ApiResponseProducts {}
-
 interface ApiResponseSignIn {
   usuario: User;
 }
 
 type ApiResponseSignUp = ApiResponseSignIn;
+
+type ApiResponseEditUser = ApiResponseSignIn;
 
 export const useApi = (): useApiData => {
   const signIn = useCallback(async (email: string, password: string) => {
@@ -53,5 +59,26 @@ export const useApi = (): useApiData => {
     []
   );
 
-  return { signIn, signUp };
+  const editUser = useCallback(
+    async (email: string, nome: string, password: string, token: string) => {
+      const response = api.put(
+        'usuarios',
+        {
+          email,
+          nome,
+          password,
+        },
+        {
+          headers: {
+            Authorization: `CaseMaker ${token}`,
+          },
+        }
+      );
+
+      return (await response).data;
+    },
+    []
+  );
+
+  return { signIn, signUp, editUser };
 };

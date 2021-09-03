@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 import iconPerson from '../../assets/images/iconPerson.svg';
 import { EditUserForm } from '../../components/Forms/EditiUserForm/index';
 import { User } from '../../services/hooks/useApi';
-import { Logout } from '../../store/modules/user/actions';
+import { logout } from '../../store/modules/user/actions';
 import { UserState } from '../../store/modules/user/reducer';
 import { Container, BoxInfo } from './styles';
 
@@ -18,8 +18,8 @@ export const Profile = () => {
   const history = useHistory();
 
   function handleLogout() {
-    dispatch(Logout());
-    history.push('/');
+    dispatch(logout());
+    history.push('/login');
   }
 
   return (
@@ -47,7 +47,7 @@ export const Profile = () => {
         </div>
       </BoxInfo>
 
-      <EditUserForm />
+      <EditUserForm user={user} editable={!isEditableOn} />
     </Container>
   );
 };

@@ -19,6 +19,12 @@ const loadUserFromLocalStorage = () => {
   }
 };
 
+const setData = (draft, user) => {
+  draft.email = user.email;
+  draft.nome = user.nome;
+  draft.token = user.token;
+};
+
 const INITIAL_STATE: User = loadUserFromLocalStorage();
 
 export const user: Reducer<User> = (
@@ -28,11 +34,7 @@ export const user: Reducer<User> = (
   return produce(state, (draft) => {
     switch (type) {
       case 'SIGN_IN_USER':
-        const { user } = payload;
-
-        draft.email = user.email;
-        draft.nome = user.nome;
-        draft.token = user.token;
+        setData(draft, payload.user);
         break;
 
       case 'LOGOUT':
@@ -40,6 +42,11 @@ export const user: Reducer<User> = (
         draft.email = '';
         draft.nome = '';
         draft.token = '';
+        break;
+
+      case 'UPDATE_USER':
+        setData(draft, payload.user);
+
         break;
 
       default:

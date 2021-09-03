@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Container, LogoSection, FormSection } from './styles';
 import { SignUpForm } from '../../components/Forms/SignUpForm';
 
-import logo from '../../assets/images/Logo.svg';
+import logoExtends from '../../assets/images/logoExtends.svg';
 import { SignInform } from '../../components/Forms/SignInForm';
 
 const Login = () => {
@@ -12,7 +12,7 @@ const Login = () => {
   return (
     <Container>
       <LogoSection>
-        <img src={logo} alt="Logo" />
+        <img src={logoExtends} alt="Logo case maker" />
         <span onClick={() => setIsSignUp(!isSignUp)}>
           {!isSignUp ? (
             <>

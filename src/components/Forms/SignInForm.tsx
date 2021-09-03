@@ -39,6 +39,7 @@ export const SignInform = () => {
   }) => {
     try {
       setIsLoading(true);
+
       const { usuario } = await signIn(email, password);
 
       dispatch(signInUser(usuario));
@@ -48,8 +49,8 @@ export const SignInform = () => {
         nome: usuario.nome,
         token: usuario.token,
       });
+
       localStorage.setItem('user', serialUser);
-      setIsLoading(false);
       history.push('/');
     } catch (e) {
       console.warn(e);
@@ -76,7 +77,11 @@ export const SignInform = () => {
       />
 
       <button type="submit">{isLoading ? 'Carregando...' : 'Login'}</button>
-      <span>Esqueci minha senha</span>
+      <span>
+        <a href="http://localhost:3333/v1/api/usuarios/recuperar-senha">
+          Esqueci minha senha
+        </a>
+      </span>
     </Form>
   );
 };

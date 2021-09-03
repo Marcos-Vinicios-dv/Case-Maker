@@ -4,9 +4,11 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 import { Input } from '../Input/input';
-import { useApi } from '../../../services/hooks/useApi';
+import { useApi, User } from '../../../services/hooks/useApi';
 
 import { Form } from './styles';
+import { useDispatch } from 'react-redux';
+import { updateUser } from '../../../store/modules/user/actions';
 
 type EditUserFormData = {
   name: string;
@@ -14,6 +16,11 @@ type EditUserFormData = {
   password: string;
   password_confirmation: string;
 };
+
+interface EditUserFormProps {
+  user: User;
+  editable: boolean;
+}
 
 const EditUserFormSchema = yup.object().shape({
   name: yup.string().required('Nome obrigatório'),
@@ -27,12 +34,17 @@ const EditUserFormSchema = yup.object().shape({
     .oneOf([null, yup.ref('password')], 'As senhas precisam ser iguais'),
 });
 
-export const EditUserForm = () => {
+export const EditUserForm = ({ user, editable }: EditUserFormProps) => {
+  const { editUser } = useApi();
   const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
 
-  const { signUp } = useApi();
-  const { register, handleSubmit, formState } = useForm({
+  const { register, handleSubmit, formState } = useForm<EditUserFormData>({
     resolver: yupResolver(EditUserFormSchema),
+    defaultValues: {
+      name: user.nome,
+      email: user.email,
+    },
   });
 
   const { errors } = formState;
@@ -44,13 +56,14 @@ export const EditUserForm = () => {
   }) => {
     try {
       setIsLoading(true);
-      signUp(email, name, password);
 
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 500);
+      const response = await editUser(email, name, password, user.token);
+
+      dispatch(updateUser(response.usuario));
     } catch (e) {
       console.warn(e);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -61,33 +74,39 @@ export const EditUserForm = () => {
         <Input
           name="name"
           type="text"
-          placeholder="Nome"
-          error={errors.nome}
+          disabled={editable}
+          placeholder="Novo Nome"
+          error={errors.name}
           {...register('name')}
         />
         <Input
           name="email"
           type="email"
-          placeholder="E-mail"
+          disabled={editable}
+          placeholder="Novo E-mail"
           error={errors.email}
           {...register('email')}
         />
         <Input
           name="password"
           type="password"
-          placeholder="Senha"
+          disabled={editable}
+          placeholder="Nova Senha"
           error={errors.password}
           {...register('password')}
         />
         <Input
           name="password_confirmation"
           type="password"
+          disabled={editable}
           placeholder="Confirmação de Senha"
           error={errors.password_confirmation}
           {...register('password_confirmation')}
         />
       </div>
-      <button type="submit">{isLoading ? 'Alterando...' : 'Alterar'}</button>
+      <button type="submit" disabled={editable}>
+        {isLoading ? 'Alterando...' : 'Alterar'}
+      </button>
     </Form>
   );
 };
