@@ -1,8 +1,8 @@
-import { User } from '../../../services/hooks/useApi';
+import { User } from '../../../services/hooks/useUser';
 
 export const signInUser = (user: User) => {
   return {
-    type: 'SIGN_IN_USER',
+    type: '@user/SIGN_IN_USER',
     payload: {
       user,
     },
@@ -11,14 +11,14 @@ export const signInUser = (user: User) => {
 
 export const logout = () => {
   return {
-    type: 'LOGOUT',
+    type: '@user/LOGOUT',
     payload: {},
   };
 };
 
 export const updateUser = (user: User) => {
   return {
-    type: 'UPDATE_USER',
+    type: '@user/UPDATE_USER',
     payload: { user },
   };
 };

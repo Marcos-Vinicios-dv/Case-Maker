@@ -6,11 +6,11 @@ import Customizar from '../pages/Customizar';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import { Profile } from '../pages/profile';
-import { User } from '../services/hooks/useApi';
-import { UserState } from '../store/modules/user/reducer';
+import { User } from '../services/hooks/useUser';
+import { IState } from '../store';
 
 export default function MainRoutes() {
-  const user = useSelector<UserState, User>((state) => state.user);
+  const user = useSelector<IState, User>((state) => state.user);
 
   return (
     <Switch>

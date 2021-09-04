@@ -5,14 +5,14 @@ import { useHistory } from 'react-router-dom';
 
 import iconPerson from '../../assets/images/iconPerson.svg';
 import { EditUserForm } from '../../components/Forms/EditiUserForm/index';
-import { User } from '../../services/hooks/useApi';
+import { User } from '../../services/hooks/useUser';
+import { IState } from '../../store';
 import { logout } from '../../store/modules/user/actions';
-import { UserState } from '../../store/modules/user/reducer';
 import { Container, BoxInfo } from './styles';
 
 export const Profile = () => {
   const [isEditableOn, setIsEditableOn] = useState(false);
-  const user = useSelector<UserState, User>((state) => state.user);
+  const user = useSelector<IState, User>((state) => state.user);
 
   const dispatch = useDispatch();
   const history = useHistory();

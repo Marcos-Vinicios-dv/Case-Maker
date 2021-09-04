@@ -4,7 +4,7 @@ import * as yup from 'yup';
 
 import { Input } from './Input/input';
 import { Form } from './styles';
-import { useApi } from '../../services/hooks/useApi';
+import { useApi } from '../../services/hooks/useUser';
 import { useState } from 'react';
 
 type CreateUserFormData = {

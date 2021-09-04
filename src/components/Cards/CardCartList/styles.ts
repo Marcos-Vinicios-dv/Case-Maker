@@ -42,6 +42,10 @@ export const InfoBox = styled.div`
       color: var(--gray-50);
       font-weight: 500;
     }
+
+    span {
+      text-transform: capitalize;
+    }
   }
 
   div:last-child {

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.li`
-  width: 250px;
+  width: 256px;
   padding: 1.5rem 1rem;
 
   position: relative;
@@ -10,7 +10,7 @@ export const Container = styled.li`
   flex-direction: column;
 
   background-color: var(--gunmetal-600);
-  border-radius: 5px;
+  border-radius: 4px;
 
   img {
     align-self: center;
@@ -20,7 +20,8 @@ export const Container = styled.li`
   h2 {
     margin: 0.8rem 0 0rem;
     color: var(--gray-50);
-    font-weight: 500;
+    font-weight: 600;
+    font-size: 1rem;
   }
 
   .sub-info {
@@ -93,10 +94,6 @@ export const Container = styled.li`
     img {
       align-self: center;
       max-height: 116px;
-    }
-
-    h2 {
-      font-size: 1.35rem;
     }
 
     .info {

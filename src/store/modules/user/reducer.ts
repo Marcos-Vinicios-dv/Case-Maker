@@ -1,10 +1,6 @@
 import produce from 'immer';
 import { Reducer } from 'redux';
-import { User } from '../../../services/hooks/useApi';
-
-export interface UserState {
-  user: User;
-}
+import { User } from '../../../services/hooks/useUser';
 
 const loadUserFromLocalStorage = () => {
   try {
@@ -33,18 +29,18 @@ export const user: Reducer<User> = (
 ) => {
   return produce(state, (draft) => {
     switch (type) {
-      case 'SIGN_IN_USER':
+      case '@user/SIGN_IN_USER':
         setData(draft, payload.user);
         break;
 
-      case 'LOGOUT':
+      case '@user/LOGOUT':
         localStorage.removeItem('user');
         draft.email = '';
         draft.nome = '';
         draft.token = '';
         break;
 
-      case 'UPDATE_USER':
+      case '@user/UPDATE_USER':
         setData(draft, payload.user);
 
         break;

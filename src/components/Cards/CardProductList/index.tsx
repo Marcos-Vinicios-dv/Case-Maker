@@ -1,23 +1,41 @@
-import { FaStar } from 'react-icons/fa';
 import { BiPlus } from 'react-icons/bi';
 
+import { useCallback } from 'react';
 import { Container } from './styles';
 
-import pc from '../../../assets/images/pc.png';
+import { ProductFormatted } from '../../../services/hooks/usePresets';
+import { IoStar } from 'react-icons/io5';
+import { addProductToCartRequest } from '../../../store/modules/cart/actions';
+import { useDispatch } from 'react-redux';
 
-export const CardProduct = () => {
+interface CardProductProduct {
+  product: ProductFormatted;
+}
+
+export const CardProduct = ({ product }: CardProductProduct) => {
+  const dispatch = useDispatch();
+
+  const handleAddToCart = useCallback(() => {
+    dispatch(addProductToCartRequest(product));
+  }, [dispatch, product]);
+
+  const separatePrice = product.preco_formatado.split(',');
+
   return (
     <Container>
-      <img src={pc} alt="" />
-      <h2>Thermaltake</h2>
+      <img src={product.Imagem_URL} alt="" />
+      <h2>{product.titulo}</h2>
       <span className="sub-info">
-        <FaStar />
-        4,5 <span>Em estoque</span>
+        <IoStar />
+        {product.avaliacao}{' '}
+        <span>
+          {product.disponibilidade ? 'Em estoque' : 'Fora de estoque'}
+        </span>
       </span>
       <span className="info">
-        R$ <span>450</span>,00
+        R$ <span>{separatePrice[0]}</span>,{separatePrice[1]}
       </span>
-      <button type="button">
+      <button type="button" onClick={handleAddToCart}>
         <BiPlus />
       </button>
     </Container>

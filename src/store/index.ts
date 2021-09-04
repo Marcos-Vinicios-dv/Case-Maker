@@ -1,25 +1,27 @@
-import { createStore } from 'redux';
-// import createSagaMiddleware from 'redux-saga';
+import { applyMiddleware, createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import createSagaMiddleware from 'redux-saga';
+
+import { User } from '../services/hooks/useUser';
+import { ICartState } from './modules/cart/types';
 
 import rootReducer from './modules/rootReducer';
-// import rootSaga from './modules/rootSaga';
+import rootSaga from './modules/rootSaga';
 
-// const sagaMonitor =
-//   process.env.NODE_ENV === 'development'
-//     ? console.tron.createSagaMonitor()
-//     : null;
-// const sagaMiddleware = createSagaMiddleware({
-//   sagaMonitor,
-// });
+export interface IState {
+  user: User;
+  cart: ICartState;
+}
 
-// const enhancer =
-//   process.env.NODE_ENV === 'development'
-//     ? compose(console.tron.createEnhancer(), applyMiddleware(sagaMiddleware))
-//     : applyMiddleware(sagaMiddleware);
+const sagaMiddleware = createSagaMiddleware();
 
-// estado global
-const store = createStore(rootReducer);
+const middlewares = [sagaMiddleware];
 
-// sagaMiddleware.run(rootSaga);
+const store = createStore(
+  rootReducer,
+  composeWithDevTools(applyMiddleware(...middlewares))
+);
+
+sagaMiddleware.run(rootSaga);
 
 export default store;

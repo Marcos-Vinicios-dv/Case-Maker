@@ -44,7 +44,7 @@ export const ContainerFilter = styled.div<ContainerFilterProps>`
       color: var(--gray-50);
     }
 
-    button {
+    > button {
       background: none;
       border: none;
       position: absolute;

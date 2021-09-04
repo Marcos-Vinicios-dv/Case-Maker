@@ -45,30 +45,28 @@ export const Container = styled.aside`
       }
     }
   }
+`;
 
-  > div span {
+export const PriceContainer = styled.div`
+  > span {
     display: block;
     padding: 0.5rem 0;
   }
+  div {
+    display: flex;
+    justify-content: space-between;
+
+    span {
+      display: block;
+    }
+  }
+  color: inherit;
 `;
 
-export const RatingContainer = styled.div`
-  .MuiRating-root {
-    width: 60%;
-    display: flex;
-    color: var(--yellow);
-    padding: 0.2rem 0;
-  }
+interface BrandButtonProps {
+  active: boolean;
+}
 
-  .MuiRating-icon {
-    padding: 0;
-  }
-
-  .MuiRating-decimal {
-    padding: 0;
-  }
-
-  .MuiRating-iconEmpty {
-    color: var(--gray-300);
-  }
+export const BrandButton = styled.li<BrandButtonProps>`
+  color: ${(props) => (props.active ? 'var(--green)' : 'inherit')};
 `;

@@ -1,11 +1,14 @@
-// import { useDispatch, useSelector } from 'react-redux';
-// import * as CarrinhoActions from '../../store/modules/carrinho/actions';
+import { useSelector } from 'react-redux';
 
 import { CardCartList } from '../../components/Cards/CardCartList';
+import { IState } from '../../store';
+import { ICartItem } from '../../store/modules/cart/types';
 import { Container, CartList } from './styles';
 // import { formatPrice } from '../../util/format';
 
 const Cart = () => {
+  const cart = useSelector<IState, ICartItem[]>((state) => state.cart.items);
+
   // const total = useSelector((state) =>
   //   formatPrice(
   //     state.carrinho.reduce((total, produto) => {
@@ -19,16 +22,6 @@ const Cart = () => {
   //     subTotal: formatPrice(produto.price * produto.quantidade),
   //   }))
   // );
-  // const dispatch = useDispatch();
-
-  // function incremento(produto) {
-  //   dispatch(
-  //     CarrinhoActions.solicitarAlterarQuantidade(
-  //       produto.id,
-  //       produto.quantidade + 1
-  //     )
-  //   );
-  // }
 
   // function decremento(produto) {
   //   dispatch(
@@ -43,8 +36,13 @@ const Cart = () => {
     <Container>
       <h1>Carrinho</h1>
       <CartList>
-        <CardCartList />
-        <CardCartList />
+        {cart.map((item) => (
+          <CardCartList
+            key={item.product._id}
+            product={item.product}
+            quantity={item.quantity}
+          />
+        ))}
       </CartList>
       <div>
         <span>

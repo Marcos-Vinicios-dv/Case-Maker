@@ -1,14 +1,20 @@
+import { ReactNode } from 'hoist-non-react-statics/node_modules/@types/react';
 import { useCallback, useEffect } from 'react';
 import { useState } from 'react';
 import { BiFilter } from 'react-icons/bi';
 import { IoClose } from 'react-icons/io5';
 
-import { Filtros } from '..';
 import { ContainerFilter } from './styles';
 
-export const ResponsiveFilter = () => {
-  const [isResponsiveFilterOpen, setIsResponsiveFilterOpen] = useState(false);
+interface ResponsiveFilterProps {
+  children: ReactNode;
+}
+
+export const ResponsiveFilter = ({ children }: ResponsiveFilterProps) => {
+  const [isResponsiveFilterOpen, setIsResponsiveFilterOpen] = useState(true);
   const [isVisible, setIsVisible] = useState(false);
+
+  //===============ESTA RESETANDO O ESTADO NO MODO MOBILE=======================
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -36,21 +42,15 @@ export const ResponsiveFilter = () => {
 
   if (isVisible) {
     return (
-      <ContainerFilter
-        isOpen={isResponsiveFilterOpen}
-        onClick={() => setIsResponsiveFilterOpen(!isResponsiveFilterOpen)}
-      >
+      <ContainerFilter isOpen={isResponsiveFilterOpen}>
         <div>
           {!isResponsiveFilterOpen ? (
-            <BiFilter />
+            <BiFilter onClick={() => setIsResponsiveFilterOpen(true)} />
           ) : (
             <>
-              <Filtros />
-              <button
-                type="button"
-                onClick={() => setIsResponsiveFilterOpen(false)}
-              >
-                <IoClose />
+              {children}
+              <button type="button">
+                <IoClose onClick={() => setIsResponsiveFilterOpen(false)} />
               </button>
             </>
           )}

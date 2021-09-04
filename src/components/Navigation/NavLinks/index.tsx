@@ -5,11 +5,11 @@ import { useLocation } from 'react-router-dom';
 import { Container, StyledLink } from './styles';
 import { useSelector } from 'react-redux';
 
-import { UserState } from '../../../store/modules/user/reducer';
-import { User } from '../../../services/hooks/useApi';
+import { User } from '../../../services/hooks/useUser';
+import { IState } from '../../../store';
 
 export const NavLinks = () => {
-  const user = useSelector<UserState, User>((state) => state.user);
+  const user = useSelector<IState, User>((state) => state.user);
   const { pathname } = useLocation();
 
   const userName = user.nome.split(' ');

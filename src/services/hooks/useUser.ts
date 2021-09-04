@@ -1,11 +1,5 @@
-import axios from 'axios';
 import { useCallback } from 'react';
-
-const api = axios.create({
-  baseURL: 'http://localhost:3333/v1/api/',
-});
-
-export default api;
+import api from '../api';
 
 interface useApiData {
   signIn: (email: string, password: string) => Promise<ApiResponseSignIn>;

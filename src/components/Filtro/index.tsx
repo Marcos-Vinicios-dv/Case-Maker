@@ -1,17 +1,52 @@
-import Rating from '@material-ui/lab/Rating';
+import ReactStars from 'react-rating-stars-component';
 import Slider from '@material-ui/core/Slider';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
 
-import { Container, RatingContainer } from './styles';
-import { useState } from 'react';
+import { Container, PriceContainer, BrandButton } from './styles';
+import { useState, useEffect } from 'react';
+import { ProductFormatted } from '../../services/hooks/usePresets';
 
-export const Filtros = () => {
-  const [inputRangeValue, setInputRangeValue] = useState<number[]>([100, 200]);
-  const [ratingValue, setRatingValue] = useState<number | null>(2);
+interface FiltrosProps {
+  onSetList: React.Dispatch<React.SetStateAction<ProductFormatted[]>>;
+  getDefaultProducts: () => Promise<ProductFormatted[]>;
+}
 
-  function handleInputRangeChange(event: any, newValue: number | number[]) {
+const brands = ['Thermaltake', 'Aigo', 'Cougar'];
+
+export const Filtros = ({ onSetList, getDefaultProducts }: FiltrosProps) => {
+  const [inputRangeValue, setInputRangeValue] = useState<number[]>([0, 3000]);
+  const [ratingValue, setRatingValue] = useState<number>(5);
+  const [price, setPrice] = useState<number[]>([0, 3000]);
+  const [brand, setBrand] = useState('');
+
+  function handleInputRangeChange(_: any, newValue: number | number[]) {
     setInputRangeValue(newValue as number[]);
   }
+
+  function handleInputRangeCommitted(_: any, newValue: number | number[]) {
+    setPrice(newValue as number[]);
+  }
+
+  useEffect(() => {
+    async function filterProducts() {
+      const defaultList = await getDefaultProducts();
+
+      let newProductList = defaultList
+        .filter((product) => product.avaliacao <= ratingValue)
+        .filter(
+          (product) => product.preco >= price[0] && product.preco <= price[1]
+        );
+
+      if (!!brand) {
+        newProductList = newProductList.filter(
+          (product) => product.marca === brand
+        );
+      }
+
+      onSetList(newProductList);
+    }
+    filterProducts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [brand, price, ratingValue]);
 
   return (
     <Container>
@@ -19,36 +54,47 @@ export const Filtros = () => {
         <h2>Marca</h2>
 
         <ul>
-          <li>Thermaltake</li>
-          <li>Thermaltake</li>
-          <li>Thermaltake</li>
+          {brands.map((brandItemMap) => (
+            <BrandButton
+              key={brandItemMap}
+              onClick={() =>
+                setBrand(brandItemMap === brand ? '' : brandItemMap)
+              }
+              active={brandItemMap === brand}
+            >
+              {brandItemMap}
+            </BrandButton>
+          ))}
         </ul>
       </div>
 
-      <div>
+      <PriceContainer>
         <h2>Preço</h2>
-        <span>
-          <span>MIN R$ {inputRangeValue[0]},00</span>
-          <span>MAX R$ {inputRangeValue[1]},00</span>
-        </span>
+        <span>Intervalo de preço</span>
         <Slider
           value={inputRangeValue}
           onChange={handleInputRangeChange}
+          onChangeCommitted={handleInputRangeCommitted}
           aria-labelledby="range-slider"
-          max={1000}
+          max={3000}
+        />
+        <div>
+          <span>R$ {inputRangeValue[0]},00</span>
+          <span>R$ {inputRangeValue[1]},00</span>
+        </div>
+      </PriceContainer>
+
+      <div>
+        <h2>Avaliação</h2>
+        <ReactStars
+          count={5}
+          value={ratingValue}
+          onChange={(newRating) => setRatingValue(newRating)}
+          size={26}
+          activeColor="#eedc3f"
+          isHalf={true}
         />
       </div>
-
-      <RatingContainer>
-        <h2>Avaliação</h2>
-        <Rating
-          name="customized-empty"
-          value={ratingValue}
-          precision={0.5}
-          onChange={(event, newValue) => setRatingValue(newValue)}
-          emptyIcon={<StarBorderIcon fontSize="inherit" />}
-        />
-      </RatingContainer>
     </Container>
   );
 };

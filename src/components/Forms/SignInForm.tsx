@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import { Input } from './Input/input';
-import { useApi } from '../../services/hooks/useApi';
+import { useApi } from '../../services/hooks/useUser';
 
 import { Form } from './styles';
 import { signInUser } from '../../store/modules/user/actions';

@@ -1,33 +1,60 @@
+import { useCallback } from 'react';
 import { IoClose } from 'react-icons/io5';
 
 import { Container, InfoBox } from './styles';
 
-import pc from '../../../assets/images/pc.png';
 import { BiPlus, BiMinus } from 'react-icons/bi';
+import { IProduct } from '../../../store/modules/cart/types';
+import { useDispatch } from 'react-redux';
+import {
+  removeProductFromCart,
+  updateProductQuantityRequest,
+} from '../../../store/modules/cart/actions';
 
-export const CardCartList = () => {
+interface CardCartListProps {
+  product: IProduct;
+  quantity: number;
+}
+
+export const CardCartList = ({ product, quantity }: CardCartListProps) => {
+  const dispatch = useDispatch();
+
+  const increment = useCallback(() => {
+    dispatch(updateProductQuantityRequest(product._id, quantity + 1));
+  }, [dispatch, product._id, quantity]);
+
+  const decrement = useCallback(() => {
+    dispatch(updateProductQuantityRequest(product._id, quantity - 1));
+  }, [dispatch, product._id, quantity]);
+
+  const removeProduct = useCallback(() => {
+    dispatch(removeProductFromCart(product._id));
+  }, [dispatch, product._id]);
+
   return (
     <Container>
-      <img src={pc} alt="PC" />
+      <img src={product.Imagem_URL} alt="PC" />
       <InfoBox>
         <div>
-          <h2>Thermaltake</h2>
-          Padrão
+          <h2>{product.titulo}</h2>
+          <span>{product.tipo}</span>
         </div>
 
         <div>
-          <span>Em estoque</span>
           <span>
-            <button type="button">
+            {product.disponibilidade ? 'Em estoque' : 'Fora de estoque'}
+          </span>
+          <span>
+            <button type="button" onClick={decrement}>
               <BiMinus />
             </button>
-            <input type="number" value="1" readOnly />{' '}
-            <button type="button">
+            <input type="number" value={quantity} readOnly />{' '}
+            <button type="button" onClick={increment}>
               <BiPlus />
             </button>
           </span>
-          <span>R$ 500,00</span>
-          <button>
+          <span>R$ {(product.preco * quantity).toFixed(2)}</span>
+          <button type="button" onClick={removeProduct}>
             <IoClose />
           </button>
         </div>

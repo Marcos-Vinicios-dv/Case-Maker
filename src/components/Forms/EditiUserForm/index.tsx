@@ -4,7 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 import { Input } from '../Input/input';
-import { useApi, User } from '../../../services/hooks/useApi';
+import { useApi, User } from '../../../services/hooks/useUser';
 
 import { Form } from './styles';
 import { useDispatch } from 'react-redux';
@@ -57,9 +57,17 @@ export const EditUserForm = ({ user, editable }: EditUserFormProps) => {
     try {
       setIsLoading(true);
 
-      const response = await editUser(email, name, password, user.token);
+      const { usuario } = await editUser(email, name, password, user.token);
 
-      dispatch(updateUser(response.usuario));
+      dispatch(updateUser(usuario));
+
+      const serialUser = JSON.stringify({
+        email: usuario.email,
+        nome: usuario.nome,
+        token: usuario.token,
+      });
+
+      localStorage.setItem('user', serialUser);
     } catch (e) {
       console.warn(e);
     } finally {
