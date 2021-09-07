@@ -67,7 +67,7 @@ export const EditUserForm = ({ user, editable }: EditUserFormProps) => {
         token: usuario.token,
       });
 
-      localStorage.setItem('user', serialUser);
+      localStorage.setItem('@caseMaker:user', serialUser);
     } catch (e) {
       console.warn(e);
     } finally {

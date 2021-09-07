@@ -11,7 +11,7 @@ interface ResponsiveFilterProps {
 }
 
 export const ResponsiveFilter = ({ children }: ResponsiveFilterProps) => {
-  const [isResponsiveFilterOpen, setIsResponsiveFilterOpen] = useState(true);
+  const [isResponsiveFilterOpen, setIsResponsiveFilterOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
   //===============ESTA RESETANDO O ESTADO NO MODO MOBILE=======================

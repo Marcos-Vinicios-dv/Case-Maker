@@ -19,14 +19,13 @@ export const LandingPage = styled.div`
   display: flex;
   align-items: center;
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
   }
 `;
 
 export const InformationSection = styled.section`
+  width: 60%;
   margin-top: -15%;
 
   h1 {
@@ -66,6 +65,8 @@ export const InformationSection = styled.section`
   }
 
   @media (max-width: 900px) {
+    width: 100%;
+    margin-top: 4rem;
     h1 {
       font-size: 2.15rem;
       line-height: 2.69rem;

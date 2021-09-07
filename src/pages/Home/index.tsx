@@ -1,10 +1,22 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Slider } from '../../components/Slider';
 
 import Presets from '../Presets';
 
 import { Container, InformationSection, LandingPage } from './styles';
 
 const Home = () => {
+  const [selectedCaseId, setSelectedCaseId] = useState('');
+
+  function handleSelectCase(caseId: string) {
+    setSelectedCaseId(caseId);
+
+    const serialCaseId = JSON.stringify(caseId);
+
+    localStorage.setItem('@caseMaker:case', serialCaseId);
+  }
+
   return (
     <>
       <Container>
@@ -18,10 +30,14 @@ const Home = () => {
               Se divirta customizando sua máquina com cores, leds e skins ao seu
               gosto.
             </p>
-            <Link to="/customizar">
+            <Link to={`/customizar/${selectedCaseId}`}>
               <button type="button">Customizar</button>
             </Link>
           </InformationSection>
+          <Slider
+            selectedCaseId={selectedCaseId}
+            onSelectedCaseId={handleSelectCase}
+          />
         </LandingPage>
         <Presets />
       </Container>

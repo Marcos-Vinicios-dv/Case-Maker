@@ -10,6 +10,7 @@ import {
   removeProductFromCart,
   updateProductQuantityRequest,
 } from '../../../store/modules/cart/actions';
+import { formatNumber } from '../../../util/format';
 
 interface CardCartListProps {
   product: IProduct;
@@ -30,6 +31,8 @@ export const CardCartList = ({ product, quantity }: CardCartListProps) => {
   const removeProduct = useCallback(() => {
     dispatch(removeProductFromCart(product._id));
   }, [dispatch, product._id]);
+
+  const priceFormatted = formatNumber(product.preco * quantity);
 
   return (
     <Container>
@@ -53,7 +56,7 @@ export const CardCartList = ({ product, quantity }: CardCartListProps) => {
               <BiPlus />
             </button>
           </span>
-          <span>R$ {(product.preco * quantity).toFixed(2)}</span>
+          <span>R$ {priceFormatted}</span>
           <button type="button" onClick={removeProduct}>
             <IoClose />
           </button>

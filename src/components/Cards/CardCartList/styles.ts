@@ -40,11 +40,13 @@ export const InfoBox = styled.div`
 
     h2 {
       color: var(--gray-50);
-      font-weight: 500;
+      font-weight: 600;
+      font-size: 1rem;
     }
 
     span {
       text-transform: capitalize;
+      font-size: 0.9rem;
     }
   }
 
@@ -83,6 +85,11 @@ export const InfoBox = styled.div`
       }
     }
 
+    span:nth-child(3) {
+      font-weight: 600;
+      color: var(--gray-50);
+    }
+
     button {
       background: none;
       border: none;
@@ -101,7 +108,7 @@ export const InfoBox = styled.div`
 
   @media (max-width: 900px) {
     h2 {
-      font-size: 1.35rem;
+      font-size: 1rem;
     }
 
     div:first-child {

@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import { formatNumber } from '../../util/format';
 import api from '../api';
 
 interface Product {
@@ -29,10 +30,7 @@ const formatProduct = async (product: Product) => {
   return {
     ...product,
     avaliacao: data.avaliacoes[0]?.pontuacao ?? 0,
-    preco_formatado: product.preco.toLocaleString('pt-BR', {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    }),
+    preco_formatado: formatNumber(product.preco),
   };
 };
 

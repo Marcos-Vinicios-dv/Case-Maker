@@ -3,34 +3,17 @@ import { useSelector } from 'react-redux';
 import { CardCartList } from '../../components/Cards/CardCartList';
 import { IState } from '../../store';
 import { ICartItem } from '../../store/modules/cart/types';
+import { formatNumber } from '../../util/format';
 import { Container, CartList } from './styles';
-// import { formatPrice } from '../../util/format';
 
 const Cart = () => {
   const cart = useSelector<IState, ICartItem[]>((state) => state.cart.items);
 
-  // const total = useSelector((state) =>
-  //   formatPrice(
-  //     state.carrinho.reduce((total, produto) => {
-  //       return total + produto.price * produto.quantidade;
-  //     }, 0)
-  //   )
-  // );
-  // const carrinho = useSelector((state) =>
-  //   state.carrinho.map((produto) => ({
-  //     ...produto,
-  //     subTotal: formatPrice(produto.price * produto.quantidade),
-  //   }))
-  // );
+  const total = cart.reduce((total, item) => {
+    return total + item.product.preco * item.quantity;
+  }, 0);
 
-  // function decremento(produto) {
-  //   dispatch(
-  //     CarrinhoActions.solicitarAlterarQuantidade(
-  //       produto.id,
-  //       produto.quantidade - 1
-  //     )
-  //   );
-  // }
+  const totalFormatted = formatNumber(total).split(',');
 
   return (
     <Container>
@@ -48,7 +31,7 @@ const Cart = () => {
         <span>
           <span>Total</span>
           <strong>
-            R$ <span>500</span>,00
+            R$ <span>{totalFormatted[0]}</span>,{totalFormatted[1]}
           </strong>
         </span>
         <button>Finalizar pedido</button>

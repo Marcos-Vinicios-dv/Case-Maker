@@ -17,7 +17,7 @@ export default function MainRoutes() {
       <Route exact path="/">
         <Home />
       </Route>
-      <Route path="/customizar">
+      <Route path="/customizar/:d">
         <Customizar />
       </Route>
       <Route path="/cart">

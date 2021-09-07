@@ -4,7 +4,7 @@ import { User } from '../../../services/hooks/useUser';
 
 const loadUserFromLocalStorage = () => {
   try {
-    const serialState = localStorage.getItem('user');
+    const serialState = localStorage.getItem('@caseMaker:user');
 
     if (serialState === null) return { email: '', nome: '', token: '' };
 
@@ -34,7 +34,7 @@ export const user: Reducer<User> = (
         break;
 
       case '@user/LOGOUT':
-        localStorage.removeItem('user');
+        localStorage.removeItem('@caseMaker:user');
         draft.email = '';
         draft.nome = '';
         draft.token = '';

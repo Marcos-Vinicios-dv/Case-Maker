@@ -50,7 +50,7 @@ export const SignInform = () => {
         token: usuario.token,
       });
 
-      localStorage.setItem('user', serialUser);
+      localStorage.setItem('@caseMaker:user', serialUser);
       history.push('/');
     } catch (e) {
       console.warn(e);
