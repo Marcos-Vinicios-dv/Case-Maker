@@ -1,11 +1,11 @@
 import { useCallback } from 'react';
 import { IoClose } from 'react-icons/io5';
+import { useDispatch } from 'react-redux';
 
 import { Container, InfoBox } from './styles';
 
 import { BiPlus, BiMinus } from 'react-icons/bi';
 import { IProduct } from '../../../store/modules/cart/types';
-import { useDispatch } from 'react-redux';
 import {
   removeProductFromCart,
   updateProductQuantityRequest,
@@ -48,11 +48,19 @@ export const CardCartList = ({ product, quantity }: CardCartListProps) => {
             {product.disponibilidade ? 'Em estoque' : 'Fora de estoque'}
           </span>
           <span>
-            <button type="button" onClick={decrement}>
+            <button
+              type="button"
+              onClick={decrement}
+              disabled={product.tipo === 'customizado'}
+            >
               <BiMinus />
             </button>
             <input type="number" value={quantity} readOnly />{' '}
-            <button type="button" onClick={increment}>
+            <button
+              type="button"
+              onClick={increment}
+              disabled={product.tipo === 'customizado'}
+            >
               <BiPlus />
             </button>
           </span>

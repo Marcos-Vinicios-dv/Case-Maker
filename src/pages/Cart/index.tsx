@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import { CardCartList } from '../../components/Cards/CardCartList';
@@ -13,19 +14,31 @@ const Cart = () => {
     return total + item.product.preco * item.quantity;
   }, 0);
 
+  useEffect(() => {
+    const serialCart = JSON.stringify({
+      cart,
+    });
+
+    localStorage.setItem('@caseMaker:Cart', serialCart);
+  }, [cart]);
+
   const totalFormatted = formatNumber(total).split(',');
 
   return (
     <Container>
       <h1>Carrinho</h1>
       <CartList>
-        {cart.map((item) => (
-          <CardCartList
-            key={item.product._id}
-            product={item.product}
-            quantity={item.quantity}
-          />
-        ))}
+        {cart.length > 0 ? (
+          cart.map((item) => (
+            <CardCartList
+              key={item.product._id}
+              product={item.product}
+              quantity={item.quantity}
+            />
+          ))
+        ) : (
+          <li>O carrinho está vazio!</li>
+        )}
       </CartList>
       <div>
         <span>

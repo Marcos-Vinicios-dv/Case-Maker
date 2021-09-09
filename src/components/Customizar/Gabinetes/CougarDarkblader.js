@@ -12,6 +12,7 @@ export default function CougarDarkblader({ setCor = null }) {
         viewBox="0 0 600 600"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        id="svg"
       >
         <path
           fillRule="evenodd"

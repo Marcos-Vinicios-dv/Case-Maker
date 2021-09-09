@@ -2,10 +2,10 @@ import { useSelector } from 'react-redux';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import Cart from '../pages/Cart';
-import Customizar from '../pages/Customizar';
+import Customizar from '../pages/Customize';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
-import { Profile } from '../pages/profile';
+import { Profile } from '../pages/Profile';
 import { User } from '../services/hooks/useUser';
 import { IState } from '../store';
 
@@ -17,7 +17,7 @@ export default function MainRoutes() {
       <Route exact path="/">
         <Home />
       </Route>
-      <Route path="/customizar/:d">
+      <Route path="/customizar/:id">
         <Customizar />
       </Route>
       <Route path="/cart">

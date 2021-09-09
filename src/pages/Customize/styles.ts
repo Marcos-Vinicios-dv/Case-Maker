@@ -11,6 +11,14 @@ export const Container = styled.div`
 
   section:first-child {
     width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      max-width: 50%;
+      max-height: 100%;
+    }
   }
 
   @media (max-width: 900px) {
@@ -116,7 +124,17 @@ export const MenuContent = styled.div`
       width: 40px;
       height: 40px;
 
-      background-color: white;
+      img {
+        width: 40px;
+        height: 40px;
+      }
+
+      transition: 0.2s ease;
+      &:hover {
+        cursor: pointer;
+
+        box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.4);
+      }
     }
   }
 

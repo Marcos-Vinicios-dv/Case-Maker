@@ -30,6 +30,11 @@ export const Container = styled.div`
 
       padding: 0.5rem 1.8rem;
       margin-left: 2.15rem;
+
+      transition: 0.2s ease;
+      &:hover {
+        filter: brightness(0.8);
+      }
     }
 
     strong {

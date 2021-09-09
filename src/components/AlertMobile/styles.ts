@@ -46,12 +46,12 @@ export const Overlay = styled.div`
         border: none;
         border-radius: 4px;
         background: none;
+      }
 
-        & + button {
-          background-color: var(--green);
-          color: var(--gray-50);
-          margin-left: 1.75rem;
-        }
+      a button {
+        background-color: var(--green);
+        color: var(--gray-50);
+        margin-left: 1.75rem;
       }
     }
   }

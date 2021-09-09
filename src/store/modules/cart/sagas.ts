@@ -6,11 +6,12 @@ import {
   updateProductQuantityRequest,
   updateProductQuantitySuccess,
 } from './actions';
-import { IState } from '../..';
-import apiFake from '../../../services/fakeApi';
-import { AxiosResponse } from 'axios';
-import { ActionTypes } from './types';
 import { toast } from 'react-toastify';
+import { AxiosResponse } from 'axios';
+
+import { IState } from '../..';
+import { ActionTypes } from './types';
+import api from '../../../services/api';
 
 type CheckProductStockRequest = ReturnType<typeof addProductToCartRequest>;
 type UpdateProductQuantityRequest = ReturnType<
@@ -18,30 +19,37 @@ type UpdateProductQuantityRequest = ReturnType<
 >;
 
 interface IStocKResponse {
-  id: string;
-  amount: number;
+  estoque: {
+    _id: string;
+    quantidade: number;
+  }[];
 }
 
 function* checkProductStock({ payload }: CheckProductStockRequest) {
   const { product } = payload;
 
-  const currentQuantity: number = yield select((state: IState) => {
-    return (
-      state.cart.items.find((item) => item.product._id === product._id)
-        ?.quantity ?? 0
-    );
-  });
-
-  const availableStockResponse: AxiosResponse<IStocKResponse> = yield call(
-    apiFake.get,
-    `stock/${product._id}`
-  );
-
-  if (availableStockResponse.data.amount > currentQuantity) {
+  const isCustomCase = product.tipo === 'customizado';
+  if (isCustomCase) {
     yield put(addProductToCartSuccess(product));
   } else {
-    yield put(addProductToCartFailure(product._id));
-    toast.error('Quantidade fora de estoque!');
+    const currentQuantity: number = yield select((state: IState) => {
+      return (
+        state.cart.items.find((item) => item.product._id === product._id)
+          ?.quantity ?? 0
+      );
+    });
+
+    const availableStockResponse: AxiosResponse<IStocKResponse> = yield call(
+      api.get,
+      `estoque?produto=${product._id}`
+    );
+
+    if (availableStockResponse.data.estoque[0].quantidade > currentQuantity) {
+      yield put(addProductToCartSuccess(product));
+    } else {
+      yield put(addProductToCartFailure(product._id));
+      toast.error('Quantidade fora de estoque!');
+    }
   }
 }
 
@@ -49,11 +57,11 @@ function* updateProductQuantity({ payload }: UpdateProductQuantityRequest) {
   if (payload.quantity <= 0) return;
 
   const availableStockResponse: AxiosResponse<IStocKResponse> = yield call(
-    apiFake.get,
-    `stock/${payload.productId}`
+    api.get,
+    `estoque?produto=${payload.productId}`
   );
 
-  const quantityInStock = availableStockResponse.data.amount;
+  const quantityInStock = availableStockResponse.data.estoque[0].quantidade;
 
   if (quantityInStock < payload.quantity) {
     toast.error('Quantidade fora de estoque!');

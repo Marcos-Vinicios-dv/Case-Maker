@@ -7,11 +7,11 @@ export default function AigoDarkflash({ setCor = null }) {
   return (
     <>
       <svg
-        id="TambaSuperior"
         xmlns="http://www.w3.org/2000/svg"
         width="65%"
         height="100%"
         viewBox="0 0 1000 1000"
+        id="svg"
       >
         <defs>
           <linearGradient

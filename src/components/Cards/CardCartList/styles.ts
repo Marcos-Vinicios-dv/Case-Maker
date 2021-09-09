@@ -10,6 +10,7 @@ export const Container = styled.li`
 
   img {
     max-height: 124px;
+    max-width: 104px;
     margin-right: 2.75rem;
   }
 
@@ -61,7 +62,7 @@ export const InfoBox = styled.div`
     }
 
     span:nth-child(2) {
-      padding: 0.8rem;
+      /* padding: 0.8rem; */
       background-color: var(--gunmetal-700);
       border-radius: 4px;
 
@@ -69,18 +70,27 @@ export const InfoBox = styled.div`
         text-align: center;
         color: var(--gray-200);
         margin-left: 0.9rem;
-        width: 24px;
+        width: 30px;
 
         background: none;
         border: none;
       }
 
       button {
-        padding: 0 0.8rem;
+        padding: 0.5rem 0.8rem;
+        border-radius: 4px;
 
         svg {
           color: var(--green);
           margin-bottom: -3px;
+        }
+        transition: 0.2s ease;
+        &:hover {
+          background-color: var(--green);
+
+          svg {
+            color: var(--gray-50);
+          }
         }
       }
     }

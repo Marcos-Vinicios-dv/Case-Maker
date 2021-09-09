@@ -7,18 +7,6 @@ import { Container, ContentBox, ListaDeProdutos } from './styles';
 const Presets = () => {
   const { productList, setProductList, getDefaultProducts } = usePresets();
 
-  // const [produtos, setProdutos] = useState([]);
-  // const [range, setRange] = useState(100);
-  // const input = document.getElementById('preco');
-
-  // function addCarrinho(id) {
-  //   dispatch(CarrinhoActions.solicitarAddAoCarrinho(id));
-  // }
-
-  // function setPreco() {
-  //   setRange(input.value);
-  // }
-
   return (
     <Container>
       <h1>Presets</h1>

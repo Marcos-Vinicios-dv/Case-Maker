@@ -30,7 +30,7 @@ const Home = () => {
               Se divirta customizando sua máquina com cores, leds e skins ao seu
               gosto.
             </p>
-            <Link to={`/customizar/${selectedCaseId}`}>
+            <Link to={`/customizar/${selectedCaseId ? selectedCaseId : 0}`}>
               <button type="button">Customizar</button>
             </Link>
           </InformationSection>

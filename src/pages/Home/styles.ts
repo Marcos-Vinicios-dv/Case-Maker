@@ -25,7 +25,7 @@ export const LandingPage = styled.div`
 `;
 
 export const InformationSection = styled.section`
-  width: 60%;
+  width: 50%;
   margin-top: -15%;
 
   h1 {

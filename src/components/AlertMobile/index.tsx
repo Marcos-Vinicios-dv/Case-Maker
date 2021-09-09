@@ -1,6 +1,8 @@
+import { useHistory } from 'react-router-dom';
 import { Overlay } from './styles';
 
 export const AlertMobile = () => {
+  const history = useHistory();
   return (
     <Overlay>
       <div>
@@ -10,8 +12,12 @@ export const AlertMobile = () => {
           deseja continuar?
         </p>
         <div>
-          <button type="button">Voltar</button>
-          <button type="button">Continuar</button>
+          <button type="button" onClick={() => history.goBack()}>
+            Voltar
+          </button>
+          <a href="https://play.google.com/store/apps/details?id=com.google.android.youtube">
+            <button type="button">Continuar</button>
+          </a>
         </div>
       </div>
     </Overlay>
