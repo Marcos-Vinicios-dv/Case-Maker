@@ -10,6 +10,7 @@ import { useApi } from '../../services/hooks/useUser';
 import { Form } from './styles';
 import { signInUser } from '../../store/modules/user/actions';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 type SignInFormData = {
   email: string;
@@ -53,7 +54,7 @@ export const SignInform = () => {
       localStorage.setItem('@caseMaker:user', serialUser);
       history.push('/');
     } catch (e) {
-      console.warn(e);
+      toast.error('E-mail ou senha estão incorretos!');
       setIsLoading(false);
     }
   };

@@ -29,10 +29,13 @@ export const InputContainer = styled.span`
       outline: none;
     }
 
-    &:-webkit-autofill {
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
       border: none;
-      box-shadow: 0 0 0 30px var(--gunmetal-600) inset;
-      -webkit-text-fill-color: var(--gray-200) !important;
+      -webkit-text-fill-color: var(--gray-200);
+      box-shadow: 0 0 0px 1000px var(--gunmetal-600) inset;
+      transition: background-color 5000s ease-in-out 0s;
     }
   }
 
