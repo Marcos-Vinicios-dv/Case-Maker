@@ -19,8 +19,32 @@ export const LandingPage = styled.div`
   display: flex;
   align-items: center;
 
+  > svg {
+    width: 28px;
+    height: 28px;
+    color: #f2f2f2;
+    position: absolute;
+    bottom: 0;
+    right: 49%;
+
+    animation: bouncing 1s ease-in alternate infinite;
+  }
+
+  @keyframes bouncing {
+    from {
+      transform: translateY(-20px);
+    }
+    to {
+      transform: translateY(0px);
+    }
+  }
+
   @media (max-width: 900px) {
     flex-direction: column;
+
+    > svg {
+      right: 46.5%;
+    }
   }
 `;
 
@@ -40,7 +64,7 @@ export const InformationSection = styled.section`
 
   p {
     font-size: 1.15rem;
-    width: 490px;
+    width: 470px;
     margin: 1rem 0 1.6rem 0;
   }
 
@@ -81,7 +105,7 @@ export const InformationSection = styled.section`
 
   @media (max-width: 600px) {
     p {
-      width: 360px;
+      width: 100%;
       margin: 0.8rem 0 1.2rem 0;
     }
   }

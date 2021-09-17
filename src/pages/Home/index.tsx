@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { IoIosArrowDown } from 'react-icons/io';
 import { Slider } from '../../components/Slider';
 
 import Presets from '../Presets';
@@ -21,6 +22,7 @@ const Home = () => {
     <>
       <Container>
         <LandingPage>
+          <IoIosArrowDown />
           <InformationSection>
             <h1>
               Crie um <span>Gabinete</span> <br />
