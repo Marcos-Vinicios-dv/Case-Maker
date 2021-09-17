@@ -37,7 +37,7 @@ export const CarouselContainer = styled.section`
 
   @media (max-width: 900px) {
     width: 100%;
-    height: 60%;
+    height: 55%;
 
     .swiper-container {
       height: 100%;
