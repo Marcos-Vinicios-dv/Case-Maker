@@ -89,11 +89,11 @@ export const Container = styled.li`
   }
 
   @media (max-width: 600px) {
-    width: 225px;
+    width: 230px;
 
     img {
       align-self: center;
-      max-height: 116px;
+      max-height: 140px;
     }
 
     .info {

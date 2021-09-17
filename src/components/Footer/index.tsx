@@ -9,7 +9,7 @@ export default function Footer() {
       <img src={logoExtends} alt="Logo" />
       <section>
         <h3>Desenvolvedores</h3>
-        <p>Marcos Vinicios teixeira</p>
+        <p>Marcos Vinicios Teixeira</p>
         <p>Nadson Cardoso do Nascimento</p>
         <p>Luiz Felipe Pio</p>
       </section>

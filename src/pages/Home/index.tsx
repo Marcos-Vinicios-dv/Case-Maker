@@ -27,8 +27,7 @@ const Home = () => {
               com seu próprio <span>Estilo</span>
             </h1>
             <p>
-              Se divirta customizando sua máquina com cores, leds e skins ao seu
-              gosto.
+              Selecione um gabinete entre as opções para começar a customizar.
             </p>
             <Link to={`/customizar/${selectedCaseId ? selectedCaseId : 0}`}>
               <button type="button">Customizar</button>

@@ -14,8 +14,6 @@ export const ResponsiveFilter = ({ children }: ResponsiveFilterProps) => {
   const [isResponsiveFilterOpen, setIsResponsiveFilterOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
-  //===============ESTA RESETANDO O ESTADO NO MODO MOBILE=======================
-
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => {
@@ -28,36 +26,30 @@ export const ResponsiveFilter = ({ children }: ResponsiveFilterProps) => {
     if (window.innerWidth < 600) {
       if (window.scrollY > 320 && window.scrollY < 1800) {
         setIsVisible(true);
-      } else if (window.scrollY < 320 || window.scrollY > 1800) {
+      } else if (window.scrollY < 320) {
         setIsVisible(false);
       }
     } else {
       if (window.scrollY > 320 && window.scrollY < 1000) {
         setIsVisible(true);
-      } else if (window.scrollY < 320 || window.scrollY > 1000) {
+      } else if (window.scrollY < 320) {
         setIsVisible(false);
       }
     }
   }, []);
 
-  if (isVisible) {
-    return (
-      <ContainerFilter isOpen={isResponsiveFilterOpen}>
-        <div>
-          {!isResponsiveFilterOpen ? (
-            <BiFilter onClick={() => setIsResponsiveFilterOpen(true)} />
-          ) : (
-            <>
-              {children}
-              <button type="button">
-                <IoClose onClick={() => setIsResponsiveFilterOpen(false)} />
-              </button>
-            </>
-          )}
-        </div>
-      </ContainerFilter>
-    );
-  } else {
-    return <></>;
-  }
+  return (
+    <ContainerFilter isOpen={isResponsiveFilterOpen} isVisible={isVisible}>
+      <div>
+        {children}
+        {!isResponsiveFilterOpen ? (
+          <BiFilter onClick={() => setIsResponsiveFilterOpen(true)} />
+        ) : (
+          <button type="button">
+            <IoClose onClick={() => setIsResponsiveFilterOpen(false)} />
+          </button>
+        )}
+      </div>
+    </ContainerFilter>
+  );
 };

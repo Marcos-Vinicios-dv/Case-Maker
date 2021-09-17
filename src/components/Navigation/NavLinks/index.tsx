@@ -8,9 +8,11 @@ import { useSelector } from 'react-redux';
 
 import { User } from '../../../services/hooks/useUser';
 import { IState } from '../../../store';
+import { ICartItem } from '../../../store/modules/cart/types';
 
 export const NavLinks = () => {
   const user = useSelector<IState, User>((state) => state.user);
+  const cart = useSelector<IState, ICartItem[]>((state) => state.cart.items);
   const [currentCase, setCurrentCase] = useState('0');
   const { pathname } = useLocation();
 
@@ -36,7 +38,8 @@ export const NavLinks = () => {
       </StyledLink>
       <div>
         <StyledLink to="/cart" active={pathname === '/cart' ? 1 : 0}>
-          <span>Carrinho</span> <MdShoppingCart />
+          <span>Carrinho</span> <MdShoppingCart />{' '}
+          {cart.length > 0 && <div>{cart.length}</div>}
         </StyledLink>
         <StyledLink
           to="/login"

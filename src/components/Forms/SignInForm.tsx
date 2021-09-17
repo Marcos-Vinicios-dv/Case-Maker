@@ -79,7 +79,7 @@ export const SignInform = () => {
 
       <button type="submit">{isLoading ? 'Carregando...' : 'Login'}</button>
       <span>
-        <a href="http://localhost:3333/v1/api/usuarios/recuperar-senha">
+        <a href="https://api-tcc-ecommerce.herokuapp.com/v1/api/usuarios/recuperar-senha">
           Esqueci minha senha
         </a>
       </span>

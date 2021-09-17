@@ -40,6 +40,7 @@ export const ContainerMenu = styled.section`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  justify-content: center;
 
   padding: 2.15rem 0;
 

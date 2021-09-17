@@ -48,6 +48,11 @@ export const ContentBox = styled.div`
 
   display: flex;
 
+  > span {
+    align-self: center;
+    margin: 0 auto;
+  }
+
   aside {
     margin-right: 4rem;
   }

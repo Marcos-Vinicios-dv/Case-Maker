@@ -57,6 +57,7 @@ export const Container = styled.div`
   }
 
   @media (max-width: 900px) {
+    min-height: calc(100vh - 8rem);
     h1 {
       font-size: 2.15rem;
       margin-top: 1.15rem;

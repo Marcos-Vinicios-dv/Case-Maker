@@ -2,14 +2,15 @@ import styled from 'styled-components';
 
 interface ContainerFilterProps {
   isOpen: boolean;
+  isVisible: boolean;
 }
 
 export const ContainerFilter = styled.div<ContainerFilterProps>`
   display: none;
 
   position: fixed;
-  bottom: ${({ isOpen }) => (isOpen ? '0' : '2rem')};
-  left: ${({ isOpen }) => (isOpen ? '0' : '2rem')};
+  bottom: ${({ isOpen, isVisible }) => (isOpen ? '0' : isVisible && '2rem')};
+  left: ${({ isOpen, isVisible }) => (isOpen ? '0' : isVisible && '2rem')};
 
   z-index: 2;
 
@@ -21,11 +22,10 @@ export const ContainerFilter = styled.div<ContainerFilterProps>`
 
   > div {
     //transições
-    transition: all 0.4s ease, border-radius 0.8s ease, left 0.5s ease,
-      bottom 0.5s ease;
+    transition: all 0.4s ease, border-radius 0.8s ease;
 
     width: ${({ isOpen }) => (isOpen ? '264px' : '45px')};
-    height: ${({ isOpen }) => (isOpen ? 'auto' : '45px')};
+    height: ${({ isOpen }) => (isOpen ? '520px' : '45px')};
     border-radius: ${({ isOpen }) => (isOpen ? '5px' : '50%')};
     background-color: ${({ isOpen }) =>
       isOpen ? 'var(--gunmetal-700)' : 'var(--green)'};
@@ -59,9 +59,16 @@ export const ContainerFilter = styled.div<ContainerFilterProps>`
     }
 
     aside {
+      transition: all 0.1s ease;
       width: 172px;
 
       margin: 1rem 0;
+
+      position: absolute;
+      top: 16px;
+
+      opacity: ${({ isOpen }) => (isOpen ? '100%' : '0')};
+      visibility: ${({ isOpen }) => (isOpen ? 'visible' : 'hidden')};
     }
   }
 

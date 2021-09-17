@@ -3,6 +3,12 @@ import styled from 'styled-components';
 export const CarouselContainer = styled.section`
   width: 50%;
   height: 100%;
+  display: flex;
+
+  > span {
+    align-self: center;
+    margin: -20% auto 0;
+  }
 
   .swiper-container {
     width: 100%;

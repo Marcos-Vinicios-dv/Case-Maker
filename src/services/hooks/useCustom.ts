@@ -11,6 +11,7 @@ import { addProductToCartRequest } from '../../store/modules/cart/actions';
 import { IProduct } from '../../store/modules/cart/types';
 import { IState } from '../../store';
 import { User } from '../../services/hooks/useUser';
+import { isMobile } from 'react-device-detect';
 
 interface useCustomData {
   handleSelectColor: (color: string) => void;
@@ -91,7 +92,7 @@ export const useCustom = (): useCustomData => {
           return { ...oldState, skins, leds };
         });
       } catch {
-        toast.warning('Selecione um gabinete na Tela Principal');
+        !isMobile && toast.warning('Selecione um gabinete na Tela Principal');
       }
     }
     loadOptions();

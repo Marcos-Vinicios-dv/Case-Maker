@@ -10,9 +10,29 @@ export const Container = styled.nav`
   div {
     margin-left: 6.99rem;
 
+    a {
+      position: relative;
+    }
+
     a span {
       display: none;
     }
+
+    a div {
+      width: 16px;
+      height: 16px;
+
+      font-size: 12px;
+      color: var(--gray-50);
+      text-align: center;
+      border-radius: 50%;
+
+      position: absolute;
+      top: -8px;
+      right: 0;
+      background-color: #de3636;
+    }
+
     a + a {
       margin-left: 1.15rem;
     }
@@ -31,7 +51,7 @@ export const Container = styled.nav`
       margin: 0.8rem 0;
     }
 
-    div {
+    > div {
       width: 100%;
       margin-left: 0;
       order: 1;
@@ -48,6 +68,9 @@ export const Container = styled.nav`
           display: block;
           margin: 0 1rem 0 0;
           font-weight: 400;
+        }
+        div {
+          top: -5px;
         }
 
         & + a {

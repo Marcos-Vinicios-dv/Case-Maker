@@ -8,16 +8,13 @@ export const AlertMobile = () => {
       <div>
         <h1>Aviso!</h1>
         <p>
-          Para realizar essa ação é necessário fazer o download do aplicativo,
-          deseja continuar?
+          Essa funcionalidade esta disponível apenas na versão para
+          computadores!
         </p>
         <div>
           <button type="button" onClick={() => history.goBack()}>
             Voltar
           </button>
-          <a href="https://play.google.com/store/apps/details?id=com.google.android.youtube">
-            <button type="button">Continuar</button>
-          </a>
         </div>
       </div>
     </Overlay>

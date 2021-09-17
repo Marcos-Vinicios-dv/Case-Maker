@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-
+import ClipLoader from 'react-spinners/ClipLoader';
 import { isMobile } from 'react-device-detect';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, {
@@ -47,30 +47,38 @@ export const Slider = ({ onSelectedCaseId, selectedCaseId }: SliderProps) => {
 
   return (
     <CarouselContainer>
-      <Swiper
-        pagination={{ clickable: true }}
-        effect={'fade'}
-        direction={isMobile ? 'horizontal' : 'vertical'}
-        fadeEffect={{ crossFade: true }}
-      >
-        {customCases.map((product) => (
-          <SwiperSlide key={product._id}>
-            <SliderItemContainer>
-              <img
-                src={product.Imagem_URL}
-                alt={product.titulo}
-                onClick={() => onSelectedCaseId(product._id)}
-              />
+      {customCases.length > 0 ? (
+        <Swiper
+          pagination={{ clickable: true }}
+          effect={'fade'}
+          direction={isMobile ? 'horizontal' : 'vertical'}
+          fadeEffect={{ crossFade: true }}
+        >
+          {customCases.map((product) => {
+            const alreadySelected =
+              product._id === selectedCaseId ? '' : product._id;
+            return (
+              <SwiperSlide key={product._id}>
+                <SliderItemContainer>
+                  <img
+                    src={product.Imagem_URL}
+                    alt={product.titulo}
+                    onClick={() => onSelectedCaseId(alreadySelected)}
+                  />
 
-              {selectedCaseId === product._id && (
-                <div>
-                  <img src={verify} alt="selecionado" />
-                </div>
-              )}
-            </SliderItemContainer>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+                  {selectedCaseId === product._id && (
+                    <div>
+                      <img src={verify} alt="selecionado" />
+                    </div>
+                  )}
+                </SliderItemContainer>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      ) : (
+        <ClipLoader color="#00d172" loading size={30} />
+      )}
     </CarouselContainer>
   );
 };

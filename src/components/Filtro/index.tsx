@@ -8,15 +8,20 @@ import { ProductFormatted } from '../../services/hooks/usePresets';
 interface FiltrosProps {
   onSetList: React.Dispatch<React.SetStateAction<ProductFormatted[]>>;
   getDefaultProducts: () => Promise<ProductFormatted[]>;
+  onSetLoading?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const brands = ['Thermaltake', 'Aigo', 'Cougar'];
+const brands = ['Todas', 'Thermaltake', 'Aigo', 'Cougar'];
 
-export const Filtros = ({ onSetList, getDefaultProducts }: FiltrosProps) => {
+export const Filtros = ({
+  onSetList,
+  getDefaultProducts,
+  onSetLoading,
+}: FiltrosProps) => {
   const [inputRangeValue, setInputRangeValue] = useState<number[]>([0, 3000]);
   const [ratingValue, setRatingValue] = useState<number>(5);
   const [price, setPrice] = useState<number[]>([0, 3000]);
-  const [brand, setBrand] = useState('');
+  const [brand, setBrand] = useState('Todas');
 
   function handleInputRangeChange(_: any, newValue: number | number[]) {
     setInputRangeValue(newValue as number[]);
@@ -28,6 +33,7 @@ export const Filtros = ({ onSetList, getDefaultProducts }: FiltrosProps) => {
 
   useEffect(() => {
     async function filterProducts() {
+      onSetLoading(true);
       const defaultList = await getDefaultProducts();
 
       let newProductList = defaultList
@@ -36,12 +42,12 @@ export const Filtros = ({ onSetList, getDefaultProducts }: FiltrosProps) => {
           (product) => product.preco >= price[0] && product.preco <= price[1]
         );
 
-      if (!!brand) {
+      if (brand !== 'Todas') {
         newProductList = newProductList.filter(
           (product) => product.marca === brand
         );
       }
-
+      onSetLoading(false);
       onSetList(newProductList);
     }
     filterProducts();
@@ -58,7 +64,7 @@ export const Filtros = ({ onSetList, getDefaultProducts }: FiltrosProps) => {
             <BrandButton
               key={brandItemMap}
               onClick={() =>
-                setBrand(brandItemMap === brand ? '' : brandItemMap)
+                setBrand(brandItemMap === brand ? 'Todas' : brandItemMap)
               }
               active={brandItemMap === brand}
             >

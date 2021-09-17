@@ -36,6 +36,7 @@ const formatProduct = async (product: Product) => {
 
 export const usePresets = () => {
   const [productList, setProductList] = useState<ProductFormatted[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const getDefaultProducts = useCallback(async () => {
     const response = (await api.get<ApiResponse>('categorias/Padrao')).data;
@@ -55,5 +56,7 @@ export const usePresets = () => {
     getDefaultProducts,
     productList,
     setProductList,
+    isLoading,
+    setIsLoading,
   };
 };

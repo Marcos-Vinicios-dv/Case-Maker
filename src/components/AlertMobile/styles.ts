@@ -22,6 +22,7 @@ export const Overlay = styled.div`
     display: flex;
     flex-direction: column;
 
+    margin-top: -30%;
     padding: 1.2rem 1.2rem 1rem;
 
     h1 {
@@ -40,18 +41,12 @@ export const Overlay = styled.div`
 
       button {
         font-weight: 600;
-        color: var(--gray-300);
+        background-color: var(--green);
+        color: var(--gray-50);
 
         padding: 0.5rem;
         border: none;
         border-radius: 4px;
-        background: none;
-      }
-
-      a button {
-        background-color: var(--green);
-        color: var(--gray-50);
-        margin-left: 1.75rem;
       }
     }
   }

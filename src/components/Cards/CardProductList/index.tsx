@@ -21,6 +21,7 @@ export const CardProduct = ({ product }: CardProductProduct) => {
 
   const handleAddToCart = useCallback(() => {
     if (user.email) {
+      toast.success(`Gabinete ${product.titulo} adicionado ao carrinho`);
       dispatch(addProductToCartRequest(product));
     } else {
       toast.warn('Para adicionar ao carrinho é necessário estar logado');

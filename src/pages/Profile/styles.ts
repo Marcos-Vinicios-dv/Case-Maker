@@ -77,11 +77,6 @@ export const BoxInfo = styled.div`
         &:hover {
           background-color: var(--green);
           color: var(--gray-50);
-
-          & + button {
-            color: var(--gray-300);
-            background-color: transparent;
-          }
         }
       }
     }

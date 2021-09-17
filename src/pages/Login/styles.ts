@@ -16,6 +16,7 @@ export const Container = styled.div`
   }
 
   @media (max-width: 600px) {
+    min-height: calc(100vh - 7.5rem);
     position: relative;
     flex-direction: column;
     justify-content: flex-start;

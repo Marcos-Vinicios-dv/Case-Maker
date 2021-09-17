@@ -40,7 +40,7 @@ export const InformationSection = styled.section`
 
   p {
     font-size: 1.15rem;
-    width: 480px;
+    width: 490px;
     margin: 1rem 0 1.6rem 0;
   }
 
@@ -66,7 +66,7 @@ export const InformationSection = styled.section`
 
   @media (max-width: 900px) {
     width: 100%;
-    margin-top: 4rem;
+    margin-top: 2rem;
     h1 {
       font-size: 2.15rem;
       line-height: 2.69rem;
@@ -81,7 +81,7 @@ export const InformationSection = styled.section`
 
   @media (max-width: 600px) {
     p {
-      width: 320px;
+      width: 360px;
       margin: 0.8rem 0 1.2rem 0;
     }
   }
