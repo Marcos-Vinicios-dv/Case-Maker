@@ -91,8 +91,14 @@ export const StyledLink = styled(Link)<StyledLinkProps>`
   color: ${({ active }) => (active ? 'var(--green)' : 'var(--gray-100)')};
 
   svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  & + a svg {
     width: 24px;
     height: 24px;
+    margin-bottom: 1px;
   }
 
   transition: 0.2s ease;
