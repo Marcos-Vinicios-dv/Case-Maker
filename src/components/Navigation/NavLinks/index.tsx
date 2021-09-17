@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { IoPersonSharp, IoCart } from 'react-icons/io5';
+import { IoPersonSharp, IoCartSharp } from 'react-icons/io5';
 import { useLocation } from 'react-router-dom';
 
 import { Container, StyledLink } from './styles';
@@ -37,7 +37,7 @@ export const NavLinks = () => {
       </StyledLink>
       <div>
         <StyledLink to="/cart" active={pathname === '/cart' ? 1 : 0}>
-          <span>Carrinho</span> <IoCart />{' '}
+          <span>Carrinho</span> <IoCartSharp />{' '}
           {cart.length > 0 && <div>{cart.length}</div>}
         </StyledLink>
         <StyledLink
