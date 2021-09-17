@@ -73,7 +73,7 @@ export const SliderItemContainer = styled.div`
   @media (max-width: 1024px) {
     img {
       margin-left: 0;
-      max-height: 300px;
+      max-height: 250px;
     }
   }
 
