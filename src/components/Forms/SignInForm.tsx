@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import { Input } from './Input/input';
-import { useApi } from '../../services/hooks/useUser';
+import { useUser } from '../../services/hooks/useUser';
 
 import { Form } from './styles';
 import { signInUser } from '../../store/modules/user/actions';
@@ -25,7 +25,7 @@ const sigInFormSchema = yup.object().shape({
 export const SignInform = () => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const { signIn } = useApi();
+  const { signIn } = useUser();
   const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(sigInFormSchema),
   });

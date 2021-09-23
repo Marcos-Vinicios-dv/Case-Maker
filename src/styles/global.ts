@@ -14,6 +14,7 @@ export default createGlobalStyle`
     --gray-200: #d1d1d1;
     --gray-300: #929292;
 
+    --gunmetal-400: #4C5B6D;
     --gunmetal-500: #2E3A48;
     --gunmetal-600: #232E3C;
     --gunmetal-700: #202A36;

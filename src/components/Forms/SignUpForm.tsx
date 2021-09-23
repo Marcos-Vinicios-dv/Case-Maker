@@ -4,7 +4,7 @@ import * as yup from 'yup';
 
 import { Input } from './Input/input';
 import { Form } from './styles';
-import { useApi } from '../../services/hooks/useUser';
+import { useUser } from '../../services/hooks/useUser';
 import { useState } from 'react';
 
 type CreateUserFormData = {
@@ -33,7 +33,7 @@ const CreateUserFormSchema = yup.object().shape({
 export const SignUpForm = ({ onToggleForm }: SignUpFormProps) => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const { signUp } = useApi();
+  const { signUp } = useUser();
   const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(CreateUserFormSchema),
   });

@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import api from '../api';
 
-interface useApiData {
+interface useUserData {
   signIn: (email: string, password: string) => Promise<ApiResponseSignIn>;
   signUp: (
     email: string,
@@ -30,7 +30,7 @@ type ApiResponseSignUp = ApiResponseSignIn;
 
 type ApiResponseEditUser = ApiResponseSignIn;
 
-export const useApi = (): useApiData => {
+export const useUser = (): useUserData => {
   const signIn = useCallback(async (email: string, password: string) => {
     const response = api.post('usuarios/login', {
       email,

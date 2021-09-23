@@ -63,9 +63,7 @@ export const Filtros = ({
           {brands.map((brandItemMap) => (
             <BrandButton
               key={brandItemMap}
-              onClick={() =>
-                setBrand(brandItemMap === brand ? 'Todas' : brandItemMap)
-              }
+              onClick={() => setBrand(brandItemMap)}
               active={brandItemMap === brand}
             >
               {brandItemMap}

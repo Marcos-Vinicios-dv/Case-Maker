@@ -4,7 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 import { Input } from '../Input/input';
-import { useApi, User } from '../../../services/hooks/useUser';
+import { useUser, User } from '../../../services/hooks/useUser';
 
 import { Form } from './styles';
 import { useDispatch } from 'react-redux';
@@ -35,7 +35,7 @@ const EditUserFormSchema = yup.object().shape({
 });
 
 export const EditUserForm = ({ user, editable }: EditUserFormProps) => {
-  const { editUser } = useApi();
+  const { editUser } = useUser();
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
 

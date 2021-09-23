@@ -24,8 +24,8 @@ interface ApiResponse {
   };
 }
 
-const formatProduct = async (product: Product) => {
-  const data = (await api.get(`avaliacoes?produto=${product._id}`)).data;
+export const formatProduct = async (product: Product) => {
+  const data = (await api.get(`produtos/${product._id}/avaliacoes`)).data;
 
   return {
     ...product,

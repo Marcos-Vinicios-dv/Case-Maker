@@ -11,6 +11,7 @@ import AigoDarkflash from '../../components/Customizar/Gabinetes/AigoDarkFlash';
 
 import { Container, ContainerMenu, MenuOptions, MenuContent } from './styles';
 import { useCustom } from '../../services/hooks/useCustom';
+import { toast } from 'react-toastify';
 
 const Customizar = () => {
   const {
@@ -40,6 +41,12 @@ const Customizar = () => {
         handleSelectRenderCase(<AigoDarkflash setCor={setColorOnElement} />);
     }
   }, [menuOption, id, selectedColor, handleSelectRenderCase]);
+
+  useEffect(() => {
+    if (id === '0') {
+      toast.warn('Selecione um gabinete para customizar na teal inicial!');
+    }
+  }, [id]);
 
   return (
     <>

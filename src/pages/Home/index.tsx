@@ -8,7 +8,15 @@ import Presets from '../Presets';
 import { Container, InformationSection, LandingPage } from './styles';
 
 const Home = () => {
-  const [selectedCaseId, setSelectedCaseId] = useState('');
+  const [selectedCaseId, setSelectedCaseId] = useState(() => {
+    const storageCaseId = localStorage.getItem('@caseMaker:case');
+
+    if (storageCaseId) {
+      return JSON.parse(storageCaseId);
+    }
+
+    return '0';
+  });
 
   function handleSelectCase(caseId: string) {
     setSelectedCaseId(caseId);
@@ -31,7 +39,7 @@ const Home = () => {
             <p>
               Selecione um gabinete entre as opções para começar a customizar.
             </p>
-            <Link to={`/customizar/${selectedCaseId ? selectedCaseId : 0}`}>
+            <Link to={`/customizar/${selectedCaseId}`}>
               <button type="button">Customizar</button>
             </Link>
           </InformationSection>

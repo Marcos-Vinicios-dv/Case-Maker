@@ -15,6 +15,10 @@ export const Container = styled.li`
   img {
     align-self: center;
     max-height: 150px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   h2 {
@@ -22,6 +26,10 @@ export const Container = styled.li`
     color: var(--gray-50);
     font-weight: 600;
     font-size: 1rem;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   .sub-info {

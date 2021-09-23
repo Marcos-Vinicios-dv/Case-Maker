@@ -5,6 +5,7 @@ import Cart from '../pages/Cart';
 import Customizar from '../pages/Customize';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
+import ProductPage from '../pages/ProductPage';
 import { Profile } from '../pages/Profile';
 import { User } from '../services/hooks/useUser';
 import { IState } from '../store';
@@ -19,6 +20,9 @@ export default function MainRoutes() {
       </Route>
       <Route path="/customizar/:id">
         <Customizar />
+      </Route>
+      <Route path="/produto/:id">
+        <ProductPage />
       </Route>
       <Route path="/cart">
         <Cart />
