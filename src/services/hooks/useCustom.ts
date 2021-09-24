@@ -42,6 +42,13 @@ export interface MenuContentState {
   leds: Led[];
 }
 
+interface MenuApiResponse {
+  opcao: {
+    skins: Skin[];
+    leds: Led[];
+  };
+}
+
 interface ApiResponse {
   produto: IProduct;
 }
@@ -83,19 +90,24 @@ export const useCustom = (): useCustomData => {
   useEffect(() => {
     async function loadOptions() {
       try {
-        const { opcoes } = (await api.get(`opcao?produto=${id}`)).data;
-
-        const skins = opcoes[0].skins.map((skin) => skin);
-        const leds = opcoes[0].leds.map((led) => led);
+        const { data } = await api.get<MenuApiResponse>(`opcao?produto=${id}`);
 
         setMenuContent((oldState) => {
-          return { ...oldState, skins, leds };
+          return {
+            ...oldState,
+            skins: data.opcao.skins,
+            leds: data.opcao.leds,
+          };
         });
-      } catch {
-        !isMobile && toast.warning('Selecione um gabinete na Tela Principal');
+      } catch (e) {
+        console.log(e);
       }
     }
     loadOptions();
+
+    if (id === 0 && !isMobile) {
+      toast.warning('Selecione um gabinete na Tela Principal');
+    }
   }, [id]);
 
   const handleSelectColor = useCallback((color: string) => {

@@ -20,6 +20,7 @@ type EditUserFormData = {
 interface EditUserFormProps {
   user: User;
   editable: boolean;
+  onSetEditable: (editable: boolean) => void;
 }
 
 const EditUserFormSchema = yup.object().shape({
@@ -34,18 +35,23 @@ const EditUserFormSchema = yup.object().shape({
     .oneOf([null, yup.ref('password')], 'As senhas precisam ser iguais'),
 });
 
-export const EditUserForm = ({ user, editable }: EditUserFormProps) => {
+export const EditUserForm = ({
+  user,
+  editable,
+  onSetEditable,
+}: EditUserFormProps) => {
   const { editUser } = useUser();
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
 
-  const { register, handleSubmit, formState } = useForm<EditUserFormData>({
-    resolver: yupResolver(EditUserFormSchema),
-    defaultValues: {
-      name: user.nome,
-      email: user.email,
-    },
-  });
+  const { register, handleSubmit, formState, setValue, setError } =
+    useForm<EditUserFormData>({
+      resolver: yupResolver(EditUserFormSchema),
+      defaultValues: {
+        name: user.nome,
+        email: user.email,
+      },
+    });
 
   const { errors } = formState;
 
@@ -68,8 +74,22 @@ export const EditUserForm = ({ user, editable }: EditUserFormProps) => {
       });
 
       localStorage.setItem('@caseMaker:user', serialUser);
+
+      setValue('password', '');
+      setValue('password_confirmation', '');
+
+      onSetEditable(false);
     } catch (e) {
-      console.warn(e);
+      if (e.response.status === 500) {
+        if (e.response.data.errors.email.message === 'Email já cadastrado!') {
+          setError('email', {
+            type: 'validate',
+            message: e.response.data.errors.email.message,
+          });
+        } else {
+          console.log(e);
+        }
+      }
     } finally {
       setIsLoading(false);
     }

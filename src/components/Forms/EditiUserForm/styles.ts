@@ -37,7 +37,9 @@ export const Form = styled.form`
           outline: none;
         }
 
-        &:-webkit-autofill {
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus {
           border: none;
           box-shadow: 0 0 0 30px var(--gunmetal-700) inset;
           -webkit-text-fill-color: var(--gray-200) !important;

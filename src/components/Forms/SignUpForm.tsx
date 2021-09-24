@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -5,7 +6,6 @@ import * as yup from 'yup';
 import { Input } from './Input/input';
 import { Form } from './styles';
 import { useUser } from '../../services/hooks/useUser';
-import { useState } from 'react';
 
 type CreateUserFormData = {
   name: string;
@@ -34,7 +34,7 @@ export const SignUpForm = ({ onToggleForm }: SignUpFormProps) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const { signUp } = useUser();
-  const { register, handleSubmit, formState } = useForm({
+  const { register, handleSubmit, formState, setError } = useForm({
     resolver: yupResolver(CreateUserFormSchema),
   });
 
@@ -47,14 +47,21 @@ export const SignUpForm = ({ onToggleForm }: SignUpFormProps) => {
   }) => {
     try {
       setIsLoading(true);
-      signUp(email, name, password);
-
-      setTimeout(() => {
-        setIsLoading(false);
-        onToggleForm(false);
-      }, 500);
+      await signUp(email, name, password);
+      onToggleForm(false);
     } catch (e) {
-      console.warn(e);
+      if (e.response.status === 500) {
+        if (e.response.data.errors.email.message === 'Email já cadastrado!') {
+          setError('email', {
+            type: 'validate',
+            message: e.response.data.errors.email.message,
+          });
+        } else {
+          console.log(e);
+        }
+      }
+    } finally {
+      setIsLoading(false);
     }
   };
 

@@ -47,7 +47,11 @@ export const Profile = () => {
         </div>
       </BoxInfo>
 
-      <EditUserForm user={user} editable={!isEditableOn} />
+      <EditUserForm
+        user={user}
+        editable={!isEditableOn}
+        onSetEditable={setIsEditableOn}
+      />
     </Container>
   );
 };
