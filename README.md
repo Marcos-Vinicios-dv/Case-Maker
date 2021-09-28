@@ -1,8 +1,8 @@
-<p align="center">
-   <img src="https://ik.imagekit.io/wgluqxvtial/Logo_bgtyxUzkw.png?updatedAt=1631148773286" alt="Logo Case maker" width="80"/>
-</p>
 <h2 align="center">
-  <b>Case Maker</b>
+   <img src="https://ik.imagekit.io/wgluqxvtial/Logo_bgtyxUzkw.png?updatedAt=1631148773286" alt="Logo Case maker" width="80"/>
+  <h2 align="center">
+    <b>Case Maker</b>
+  </h2>
 </h2>
 <br>
 <p align="center">
