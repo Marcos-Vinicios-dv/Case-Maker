@@ -1,6 +1,9 @@
 <p align="center">
-   <img src="https://ik.imagekit.io/wgluqxvtial/logo_35tNjuJrP.svg?updatedAt=1632827295854" alt="Logo Case maker" width="300"/>
+   <img src="https://ik.imagekit.io/wgluqxvtial/Logo_bgtyxUzkw.png?updatedAt=1631148773286" alt="Logo Case maker" width="80"/>
 </p>
+<h2 align="center">
+  <b>Case Maker</b>
+</h2>
 <br>
 <p align="center">
    <a href="https://case-maker.netlify.app/">
@@ -23,7 +26,7 @@
 
 - <b>Home</b>
 
-  <img width="100%" src="https://ik.imagekit.io/wgluqxvtial/Home_2XRDpD2zAl0.png?updatedAt=1632830102202" alt="Página Pricipal">
+  <img width="100%" src="https://ik.imagekit.io/wgluqxvtial/Home_2XRDpD2zAl0.png?updatedAt=1632830102202" alt="Página Principal">
   Na Home o usuário pode escolher entre os itens do carousel qual gabinete ele quer customizar. 
 <br>
 
