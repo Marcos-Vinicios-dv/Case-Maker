@@ -1,18 +1,18 @@
 <h2 align="center">
    <img src="https://ik.imagekit.io/wgluqxvtial/Logo_bgtyxUzkw.png?updatedAt=1631148773286" alt="Logo Case maker" width="80"/>
-  <h2 align="center">
+  <p align="center">
     <b>Case Maker</b>
-  </h2>
+  </p>
+
+  <p align="center">
+    <a href="https://case-maker.netlify.app/">
+        <img alt="Link para app oline" src="https://ik.imagekit.io/wgluqxvtial/Frame_1_2rezJC4eJf.svg?updatedAt=1632828138845" height="30"/>
+    </a>
+      <a href="https://github.com/marcos-vinicios-dv/case-maker-mobile">
+    <img alt="Link repositório mobile" src="https://ik.imagekit.io/wgluqxvtial/Frame_2_d8k6ECoKRTj.svg?updatedAt=1632828138838" height="30">
+    </a>
+  </p>
 </h2>
-<br>
-<p align="center">
-   <a href="https://case-maker.netlify.app/">
-      <img alt="Link para app oline" src="https://ik.imagekit.io/wgluqxvtial/Frame_1_2rezJC4eJf.svg?updatedAt=1632828138845" height="30"/>
-   </a>
-    <a href="https://github.com/marcos-vinicios-dv/case-maker-mobile">
-  <img alt="Link repositório mobile" src="https://ik.imagekit.io/wgluqxvtial/Frame_2_d8k6ECoKRTj.svg?updatedAt=1632828138838" height="30">
-  </a>
-</p>
 <br>
 
 ## O que é Case Maker?
