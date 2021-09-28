@@ -21,19 +21,19 @@
 
 ## Algumas imagens do projeto (WEB):
 
-- Home
+- <b>Home</b>
 
   <img width="100%" src="https://ik.imagekit.io/wgluqxvtial/Home_2XRDpD2zAl0.png?updatedAt=1632830102202" alt="Página Pricipal">
   Na Home o usuário pode escolher entre os itens do carousel qual gabinete ele quer customizar. 
 <br>
 
-- Customizar
+- <b>Customizar</b>
 
   <img width="100%" src="https://ik.imagekit.io/wgluqxvtial/Custom_j4k6_MH6CfC.png?updatedAt=1632830102108">
   Após escolher seu gabinete o cliente pode alterar seu gabinete de 3 maneiras diferentes(apenas uma delas pode ser aplicada), ele pode aplicar alguma cor em qualquer lugar do gabinete, aplicar uma skin feita por nós ou então apenas trocar as cores dos leds(se presentes).
 <br>
 
-- Presets
+- <b>Presets</b>
 
   <img width="100%" src="https://ik.imagekit.io/wgluqxvtial/Presets_6qrzjan5N.png?updatedAt=1632830102261" alt="Página de gabinetes">
   Caso o usuário queira apenas comprar um gabinete com suas opções default ele também pode, na página Presets ele verá os gabinetes em estoque.
