@@ -26,7 +26,7 @@ export const SignInform = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const { signIn } = useUser();
-  const { register, handleSubmit, formState } = useForm({
+  const { register, handleSubmit, formState } = useForm<SignInFormData>({
     resolver: yupResolver(sigInFormSchema),
   });
   const dispatch = useDispatch();

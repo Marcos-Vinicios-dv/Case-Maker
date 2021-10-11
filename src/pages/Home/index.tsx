@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IoIosArrowDown } from 'react-icons/io';
-import { Slider } from '../../components/Slider';
+import { isMobile } from 'react-device-detect';
 
+import { Slider } from '../../components/Slider';
 import Presets from '../Presets';
 
 import { Container, InformationSection, LandingPage } from './styles';
@@ -37,7 +38,8 @@ const Home = () => {
               com seu próprio <span>Estilo</span>
             </h1>
             <p>
-              Selecione um gabinete entre as opções para começar a customizar.
+              Clique sobre uma das opções {isMobile ? 'abaixo' : 'ao lado'} para
+              selecionar o gabinete.
             </p>
             <Link to={`/customizar/${selectedCaseId}`}>
               <button type="button">Customizar</button>
