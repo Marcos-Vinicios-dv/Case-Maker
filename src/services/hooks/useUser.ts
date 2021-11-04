@@ -2,33 +2,31 @@ import { useCallback } from 'react';
 import api from '../api';
 
 interface useUserData {
-  signIn: (email: string, password: string) => Promise<ApiResponseSignIn>;
+  signIn: (email: string, password: string) => Promise<ApiResponseUser>;
   signUp: (
     email: string,
     nome: string,
     password: string
-  ) => Promise<ApiResponseSignUp>;
+  ) => Promise<ApiResponseUser>;
   editUser: (
     email: string,
     nome: string,
     password: string,
     token: string
-  ) => Promise<ApiResponseEditUser>;
+  ) => Promise<ApiResponseUser>;
 }
 
 export type User = {
   email: string;
   nome: string;
   token: string;
+  imageUrl: string;
+  _id: string;
 };
 
-interface ApiResponseSignIn {
+export interface ApiResponseUser {
   usuario: User;
 }
-
-type ApiResponseSignUp = ApiResponseSignIn;
-
-type ApiResponseEditUser = ApiResponseSignIn;
 
 export const useUser = (): useUserData => {
   const signIn = useCallback(async (email: string, password: string) => {

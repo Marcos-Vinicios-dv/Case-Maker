@@ -49,6 +49,8 @@ export const SignInform = () => {
         email: usuario.email,
         nome: usuario.nome,
         token: usuario.token,
+        _id: usuario._id,
+        imageUrl: usuario.imageUrl,
       });
 
       localStorage.setItem('@caseMaker:user', serialUser);

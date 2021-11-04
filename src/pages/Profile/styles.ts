@@ -20,12 +20,7 @@ export const BoxInfo = styled.div`
   color: var(--gunmetal-500);
   font-weight: 500;
 
-  > img {
-    width: 192px;
-    height: 192px;
-  }
-
-  > div {
+  > div:last-child {
     display: flex;
     flex-direction: column;
 
@@ -50,6 +45,7 @@ export const BoxInfo = styled.div`
     div {
       align-self: flex-end;
       margin-top: auto;
+
       button {
         font-weight: 600;
         color: ${({ isEditableOn }) =>
@@ -86,12 +82,7 @@ export const BoxInfo = styled.div`
     width: 100%;
     justify-content: center;
 
-    > img {
-      width: 160px;
-      height: 160px;
-    }
-
-    > div {
+    > div:last-child {
       margin-left: 3rem;
 
       h1 {
@@ -106,7 +97,7 @@ export const BoxInfo = styled.div`
 
     margin-top: 1.15rem;
 
-    > div {
+    > div:last-child {
       margin: 1rem 0 0;
       align-items: center;
 
@@ -115,5 +106,63 @@ export const BoxInfo = styled.div`
         align-self: center;
       }
     }
+  }
+`;
+
+export const UserImageEdit = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 192px;
+  height: 192px;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  border: 2px dashed var(--gray-200);
+
+  color: var(--gray-200);
+
+  div {
+    z-index: -1;
+    position: absolute;
+  }
+
+  svg {
+    width: 50px;
+    height: 50px;
+    z-index: 2;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  @media (max-width: 900px) {
+    width: 160px;
+    height: 160px;
+
+    svg {
+      width: 32px;
+      height: 32px;
+    }
+  }
+`;
+
+export const UserImage = styled.div`
+  width: 192px;
+  height: 192px;
+
+  border-radius: 50%;
+
+  background-image: url(${(props) => props.src});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  @media (max-width: 900px) {
+    width: 160px;
+    height: 160px;
   }
 `;
